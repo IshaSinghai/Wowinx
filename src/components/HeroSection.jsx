@@ -86,71 +86,54 @@ export default function HeroSection() {
         >
           <h1
             className="
-              absolute
-              inset-0
-              text-[#1a1a1a]
-              text-[clamp(2.2rem,5vw,5.2rem)]
-              leading-[0.95]
-              tracking-[-0.06em]
-              font-medium
-              text-center
-              whitespace-nowrap
-            "
-          >
-            The constellation of companies behind the
-            <br />
-            next generation of human experiences
-          </h1>
-
-          <h1
-            className="
               relative
-              text-[#F8F8F8]
+              text-[#ffffff]
               text-[clamp(2.2rem,5vw,5.2rem)]
+              drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]
               leading-[0.95]
               tracking-[-0.06em]
               font-medium
               text-center
               whitespace-nowrap
-              clip-text-half
             "
           >
             The constellation of companies behind the
             <br />
             next generation of human experiences
           </h1>
-        </motion.div>
 
-        <motion.div
-          ref={citiesRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="
-            mt-6
-            flex
-            items-center
-            justify-center
-            gap-3
-            sm:gap-4
-            flex-wrap
-            text-xs
-            sm:text-sm
-            text-white/90
-            font-medium
-          "
-        >
-          {cities.map((city, i) => (
-            <span key={city} className="flex items-center gap-2">
-              {city}
+          <motion.div
+            ref={citiesRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="
+              mt-6
+              flex
+              items-center
+              justify-center
+              gap-3
+              sm:gap-4
+              flex-wrap
+              text-xs
+              sm:text-sm
+              text-white/90
+              font-medium
+            "
+          >
+            {cities.map((city, i) => (
+              <span key={city} className="flex items-center gap-2">
+                {city}
 
-              {i < cities.length - 1 && (
-                <span className="w-[4px] h-[4px] rounded-full bg-white/80" />
-              )}
-            </span>
-          ))}
+                {i < cities.length - 1 && (
+                  <span className="w-[4px] h-[4px] rounded-full bg-white/80" />
+                )}
+              </span>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
+
     </section>
   );
 }

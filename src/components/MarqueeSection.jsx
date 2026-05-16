@@ -20,17 +20,23 @@ export default function MarqueeSection() {
       onUpdate: (self) => {
         const velocity = Math.abs(self.getVelocity());
 
-        currentSpeed = gsap.utils.clamp(1, 4, velocity / 500);
+        currentSpeed = gsap.utils.clamp(
+          1,
+          1.8,
+          velocity / 2500
+        );
 
         gsap.to(track, {
           '--marquee-speed': currentSpeed,
-          duration: 0.3,
+          duration: 2,
+          ease: 'power1.out',
           overwrite: true,
         });
       },
     });
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () =>
+      ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   const marqueeContent = (
@@ -40,32 +46,33 @@ export default function MarqueeSection() {
       </span>
 
       <div className="w-[140px] h-[74px] md:w-[193px] md:h-[102px] overflow-hidden flex-shrink-0 mx-4 md:mx-6 opacity-100">
-  <img
-    src="/images/earth.png"
-    alt="Earth"
-    className="w-full h-full object-cover"
-    loading="lazy"
-  />
-</div>
+        <img
+          src="/images/earth.png"
+          alt="Earth"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
 
       <span className="text-[clamp(2rem,5vw,4.5rem)] font-semibold text-white tracking-[-0.03em] whitespace-nowrap">
         of the 22nd century
       </span>
 
       <div className="w-[140px] h-[74px] md:w-[193px] md:h-[102px] overflow-hidden flex-shrink-0 mx-4 md:mx-6 opacity-100">
-  <img
-    src="/images/silver metal.png"
-    alt="Silver metal"
-    className="w-full h-full object-cover"
-    loading="lazy"
-  />
-</div>
+        <img
+          src="/images/silver metal.png"
+          alt="Silver metal"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
     </>
   );
 
   return (
     <section className="w-full overflow-hidden bg-[#111110] border-y border-white/[0.06]">
-      
+
+      {/* Marquee */}
       <div className="py-10 md:py-14">
         <div
           ref={trackRef}
@@ -73,26 +80,32 @@ export default function MarqueeSection() {
           style={{ '--marquee-speed': 1 }}
         >
           <div
-            className="flex items-center gap-4 md:gap-6 marquee-track"
+            className="flex items-center gap-4 md:gap-6 marquee-track animate-marquee"
             style={{
-              animationDuration: 'calc(30s / var(--marquee-speed))',
+              animationDuration:
+                'calc(45s / var(--marquee-speed))',
             }}
           >
             {marqueeContent}
             <span className="mx-6 md:mx-10" />
+
             {marqueeContent}
             <span className="mx-6 md:mx-10" />
+
             {marqueeContent}
             <span className="mx-6 md:mx-10" />
           </div>
         </div>
       </div>
 
+      {/* Footer */}
       <div className="border-t border-white/[0.06] px-5 sm:px-6 md:px-12 py-10 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-white">
+
+          {/* Brand */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold lowercase tracking-tight">
-              wowinx 
+              wowinx
             </h2>
 
             <p className="text-sm text-white/60 mt-2">
@@ -100,6 +113,7 @@ export default function MarqueeSection() {
             </p>
           </div>
 
+          {/* Links */}
           <div>
             <h3 className="text-sm sm:text-base font-medium mb-5 md:mb-6">
               Links and resources
@@ -134,6 +148,7 @@ export default function MarqueeSection() {
             </div>
           </div>
 
+          {/* Subscribe */}
           <div className="w-full">
             <h3 className="text-sm sm:text-base font-medium mb-5 md:mb-6">
               Subscribe
@@ -171,6 +186,7 @@ export default function MarqueeSection() {
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
