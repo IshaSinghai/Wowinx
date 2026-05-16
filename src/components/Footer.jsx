@@ -12,7 +12,10 @@ export default function Footer() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
-        { y: 40, opacity: 0 },
+        {
+          y: 40,
+          opacity: 0,
+        },
         {
           y: 0,
           opacity: 1,
@@ -33,21 +36,29 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#111110] overflow-hidden"
       id="contact"
+      className="relative w-full bg-[#111110] overflow-hidden"
     >
       {/* Divider */}
-      <div className="absolute top-0 left-12 right-12 h-[1px] bg-white/20 z-30"></div>
+      <div className="absolute top-0 left-6 md:left-12 right-6 md:right-12 h-[1px] bg-white/20 z-30"></div>
 
       {/* Content */}
-      <div ref={contentRef} className="relative z-30">
+      <div
+        ref={contentRef}
+        className="relative z-30"
+      >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          
           <p className="text-xs text-white/50">
             2026. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
-            {['Privacy policy', 'Cookies policy', 'Legal notice'].map((link) => (
+            {[
+              'Privacy policy',
+              'Cookies policy',
+              'Legal notice',
+            ].map((link) => (
               <a
                 key={link}
                 href="#"
@@ -60,22 +71,37 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Visual Layers */}
-      <div className="relative w-full h-[420px] overflow-hidden">
+      {/* Images Section */}
+      <div className="w-full flex flex-col items-center justify-center">
 
-        {/* WOWINX (BOTTOM layer) */}
-        <img
-          src="/images/wowinx footer.png"
-          alt="wowinx background"
-          className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-[85%] max-w-none z-0 pointer-events-none"
-        />
+        {/* HANDS IMAGE */}
+        <div className="w-full bg-transparent overflow-hidden">
+          <img
+            src="/images/hands2.png"
+            alt="decorative hands"
+            className="
+              w-full
+              h-auto
+              object-cover
+              block
+            "
+          />
+        </div>
 
-        {/* HANDS (TOP layer - black bg handled via blend mode) */}
-        <img
-          src="/images/hands.png"
-          alt="decorative hands"
-          className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none mix-blend-screen"
-        />
+        {/* WOWINX IMAGE */}
+        <div className="w-full flex justify-center bg-[#111110] pt-2 md:pt-4">
+          <img
+            src="/images/wowinx footer.png"
+            alt="wowinx footer"
+            className="
+              w-[92%]
+              md:w-[85%]
+              h-auto
+              object-contain
+              block
+            "
+          />
+        </div>
 
       </div>
     </footer>
