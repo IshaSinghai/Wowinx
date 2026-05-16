@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   WOWINX — Global Styles
+   ======================================== */
+
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg text-text-primary font-sans;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  ::selection {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ========================================
+   Smooth scroll container (Lenis)
+   ======================================== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.glass {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   Text Gradient Utility
+   ======================================== */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Text Gradient Utility
+   ======================================== */
+.gradient-text {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  background: linear-gradient(90deg, #ffffff 0%, #b0b0b0 40%, #00c6ff 70%, #0072ff 100%);
+  -webkit-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========================================
+   Hero background + radial overlay (Figma)
+   ======================================== */
+.hero {
+  background: linear-gradient(to right, #f5f5f5, #eaeaea);
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(circle at center, #000000, transparent);
+  filter: blur(60px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+.btn-outline {
+  @apply inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded-sm text-sm font-medium text-white transition-all duration-300;
+}
+.btn-outline:hover {
+  @apply bg-white text-black border-white;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-sm text-sm font-medium transition-all duration-300;
+}
+.btn-primary:hover {
+  @apply bg-white/90;
+}
+
+/* ========================================
+   Marquee
+   ======================================== */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ========================================
+   Focus / Blur Transitions
+   ======================================== */
+.blur-unfocused {
+  filter: blur(3px);
+  opacity: 0.4;
+  transition: filter 0.6s ease, opacity 0.6s ease;
+}
+.blur-unfocused.in-view {
+  filter: blur(0px);
+  opacity: 1;
+}
+
+/* ========================================
+   GPU-Optimized Animations
+   ======================================== */
+.gpu-accelerate {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
