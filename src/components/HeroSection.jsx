@@ -67,7 +67,7 @@ export default function HeroSection() {
     >
       <div ref={imageRef} className="absolute inset-0 z-10 overflow-hidden">
         <motion.img
-          src="/images/c7e65d987f08961585c06a72e5f0c3f28b4caeee.png"
+          src="/images/HomepageWomen.png"
           alt="VR Person"
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -85,20 +85,23 @@ export default function HeroSection() {
           className="relative w-full max-w-[1180px] mx-auto"
         >
           <h1
-            className="
+            className={`
               relative
               text-[#ffffff]
               text-[clamp(2.2rem,5vw,5.2rem)]
               drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]
-              leading-[0.95]
+              leading-[1.02]
+              md:leading-[0.95]
               tracking-[-0.06em]
               font-medium
               text-center
-              whitespace-nowrap
-            "
+              break-words
+              max-w-full
+              overflow-visible
+            `}
           >
             The constellation of companies behind the
-            <br />
+            
             next generation of human experiences
           </h1>
 

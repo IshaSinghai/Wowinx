@@ -11,7 +11,7 @@ export default function MarqueeSection() {
     const track = trackRef.current;
     if (!track) return;
 
-    let currentSpeed = 1;
+    let currentSpeed = 0.8;
 
     ScrollTrigger.create({
       trigger: track,
@@ -21,14 +21,14 @@ export default function MarqueeSection() {
         const velocity = Math.abs(self.getVelocity());
 
         currentSpeed = gsap.utils.clamp(
-          1,
-          1.8,
-          velocity / 2500
+          0.6,
+          1.2,
+          velocity / 4000
         );
 
         gsap.to(track, {
           '--marquee-speed': currentSpeed,
-          duration: 2,
+          duration: 4,
           ease: 'power1.out',
           overwrite: true,
         });
@@ -83,7 +83,7 @@ export default function MarqueeSection() {
             className="flex items-center gap-4 md:gap-6 marquee-track animate-marquee"
             style={{
               animationDuration:
-                'calc(45s / var(--marquee-speed))',
+                'calc(90s / var(--marquee-speed))',
             }}
           >
             {marqueeContent}

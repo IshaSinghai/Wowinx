@@ -106,4 +106,43 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+}                                                                                                     
+
+
+{/* Images Section */}
+<div className="w-full bg-[#111110] overflow-hidden">
+  {/* HANDS IMAGE */}
+  <div className="relative w-full h-[180px] md:h-[240px] lg:h-[280px] overflow-hidden">
+    <img
+      src="/images/hands2.png"
+      alt="decorative hands"
+      className="
+        absolute
+        left-0
+        top-0
+        w-full
+        h-full
+        object-cover
+        object-top
+        block
+      "
+    />
+  </div>
+
+  {/* WOWINX IMAGE */}
+  <div className="relative w-full -mt-[95px] md:-mt-[145px] lg:-mt-[175px] flex justify-center overflow-hidden">
+    <img
+      src="/images/wowinx footer.png"
+      alt="wowinx footer"
+      className="
+        w-[104%]
+        md:w-[100%]
+        lg:w-[98%]
+        h-auto
+        object-contain
+        block
+        opacity-35
+      "
+    />
+  </div>
+</div>
