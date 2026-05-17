@@ -41,7 +41,6 @@ export default function Navbar() {
 
       setIsScrolled(scrollY > 50);
       setIsPastHero(scrollY > window.innerHeight * 0.8);
-      setIsDropdownOpen(false);
     };
 
     window.addEventListener('scroll', handleScroll, {
@@ -60,7 +59,6 @@ export default function Navbar() {
     ? 'bg-[#2b2b2b]/[0.20] backdrop-blur-sm border border-white/10'
     : 'bg-[#0e0e0e]/40 backdrop-blur-xl border border-white/10';
 
-  // Solid background for dropdown (mirrors navBackgroundClass but opaque so backdrop-blur works)
   const dropdownBgStyle = isScrolled
     ? isPastHero
       ? { backgroundColor: 'rgba(0,0,0,0.85)' }
@@ -136,12 +134,13 @@ export default function Navbar() {
                     backdropFilter: 'blur(24px)',
                     WebkitBackdropFilter: 'blur(24px)',
                   }}
-                  className={`
-                    absolute top-full mt-4 md:mt-5
-                    left-0 right-0
-                    w-full
-                    md:w-full
-                    max-w-full
+                  className="
+                    absolute top-full left-0 mt-4 md:mt-5
+                    w-[95vw]
+                    sm:w-[520px]
+                    md:w-[620px]
+                    max-w-[95vw]
+                    md:max-w-none
                     rounded-[4px]
                     md:rounded-[12px]
                     overflow-hidden
@@ -149,15 +148,12 @@ export default function Navbar() {
                     shadow-2xl shadow-black/40
                     text-white
                     isolate
-                  `}
+                  "
                 >
                   {/* Mobile Dropdown */}
                   <div className="md:hidden px-3 pt-12 pb-8">
                     <div className="flex flex-col gap-5">
                       {navDropdown.map((item) => {
-                        const isActive =
-                          activeDropdownItem === item.label;
-
                         return (
                           <a
                             key={item.label}
@@ -166,15 +162,16 @@ export default function Navbar() {
                               setActiveDropdownItem(item.label);
                               setIsDropdownOpen(false);
                             }}
-                            className={`
+                            className="
                               text-white
                               text-[26px]
                               leading-[28px]
                               font-normal
                               no-underline
-                            `}
+                            "
                             style={{
-                              fontFamily: 'PP Neue Montreal, sans-serif',
+                              fontFamily:
+                                'PP Neue Montreal, sans-serif',
                             }}
                           >
                             {item.label}
@@ -200,7 +197,9 @@ export default function Navbar() {
                               opacity-100
                               block
                             "
-                            style={{ objectPosition: 'center center' }}
+                            style={{
+                              objectPosition: 'center center',
+                            }}
                           />
                         )
                       )}
@@ -290,11 +289,11 @@ export default function Navbar() {
                       })}
                     </div>
 
-                    <div className="w-full overflow-hidden rounded-xl bg-[#111110]">
+                    <div className="w-full h-[260px] overflow-hidden rounded-xl bg-[#111110]">
                       <img
-                        src="/images/c7e65d987f08961585c06a72e5f0c3f28b4caeee.png"
+                        src="/images/HomepageWomen.png"
                         alt="Dropdown preview"
-                        className="w-full h-auto object-cover"
+                        className="w-full h-full object-cover object-center block"
                       />
                     </div>
                   </div>
