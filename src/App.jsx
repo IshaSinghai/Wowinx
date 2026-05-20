@@ -11,24 +11,180 @@ import BuildNextSection from './components/BuildNextSection';
 import EcosystemSection from './components/EcosystemSection';
 import MarqueeSection from './components/MarqueeSection';
 import Footer from './components/Footer';
+import { CompaniesSection } from './components/CompaniesSection';
+import OurVisionPage from './components/OurVisionPage';
+import VentureScreen from './components/VentureScreen';
+import TheStoryScreen from './components/TheStoryScreen';
+import JoinUsScreen from './components/JoinUsScreen';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
-
 export default function App() {
-  useSmoothScroll();
+  const lenisRef = useSmoothScroll();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState('home');
 
+  const scrollToTop = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { duration: 0 });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  // Loading screen
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
+
+  // Hash routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+
+      if (hash === '#companies' || hash === '#CompaniesSection') {
+        setCurrentPage('companies');
+        scrollToTop();
+      } else if (hash === '#VentureScreen') {
+        setCurrentPage('VentureScreen');
+        scrollToTop();
+      } else if (
+        hash === '#vision' ||
+        hash === '#OurVisionPage'
+      ) {
+        setCurrentPage('OurVisionPage');
+        scrollToTop();
+      } else if (
+        hash === '#story' ||
+        hash === '#ecosystem'
+      ) {
+        setCurrentPage('story');
+        scrollToTop();
+      } else if (
+        hash === '#JoinUsScreen' ||
+        hash === '#joinUs'
+      ) {
+        setCurrentPage('joinUs');
+        scrollToTop();
+      } else {
+        setCurrentPage('home');
+        scrollToTop();
+      }
+    };
+
+    window.addEventListener(
+      'hashchange',
+      handleHashChange
+    );
+
+    handleHashChange();
+
+    return () => {
+      window.removeEventListener(
+        'hashchange',
+        handleHashChange
+      );
+    };
+  }, []);
+
+  // Refresh ScrollTrigger when returning home
+  useEffect(() => {
+    if (currentPage === 'home') {
+      scrollToTop();
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+        });
+      });
+    }
+  }, [currentPage]);
+
+  // Venture Page
+  if (currentPage === 'VentureScreen') {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <VentureScreen
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </motion.div>
+    );
+  }
+
+  // Story Page
+  if (currentPage === 'story') {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <Navbar
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+
+        <TheStoryScreen />
+      </motion.div>
+    );
+  }
+
+  // Vision Page
+  if (currentPage === 'OurVisionPage') {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <Navbar
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+
+        <OurVisionPage />
+      </motion.div>
+    );
+  }
+
+  // Join Us Page — FIXED: currentPage and setCurrentPage now passed to JoinUsScreen
+  if (currentPage === 'joinUs') {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <JoinUsScreen
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </motion.div>
+    );
+  }
 
   return (
     <>
@@ -41,7 +197,9 @@ export default function App() {
           ease: [0.22, 1, 0.36, 1],
         }}
         style={{
-          pointerEvents: isLoading ? 'all' : 'none',
+          pointerEvents: isLoading
+            ? 'all'
+            : 'none',
         }}
         className="fixed inset-0 z-[100] bg-bg flex items-center justify-center"
       >
@@ -65,29 +223,38 @@ export default function App() {
           ease: [0.22, 1, 0.36, 1],
         }}
       >
-        <Navbar />
+        <Navbar
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
-        <main>
-          <section id="hero">
-            <HeroSection />
-          </section>
+        {currentPage === 'companies' ? (
+          <main>
+            <CompaniesSection />
+          </main>
+        ) : (
+          <main>
+            <section id="hero">
+              <HeroSection />
+            </section>
 
-          <section id="venture">
-            <BuildNextSection />
-          </section>
+            <section id="venture">
+              <BuildNextSection />
+            </section>
 
-          <section id="ecosystem">
-            <EcosystemSection />
-          </section>
+            <section id="ecosystem">
+              <EcosystemSection />
+            </section>
 
-          <section id="marquee">
-            <MarqueeSection />
-          </section>
+            <section id="marquee">
+              <MarqueeSection />
+            </section>
 
-          <section id="contact">
-            <Footer />
-          </section>
-        </main>
+            <section id="contact">
+              <Footer />
+            </section>
+          </main>
+        )}
       </motion.div>
     </>
   );

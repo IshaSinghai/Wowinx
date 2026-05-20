@@ -16,7 +16,7 @@ export default function BuildNextSection() {
     if (!section) return;
 
     // Text reveal on scroll
-    gsap.fromTo(
+    const textAnimation = gsap.fromTo(
       textRef.current,
       { y: 60, opacity: 0 },
       {
@@ -33,7 +33,7 @@ export default function BuildNextSection() {
     );
 
     // Image reveal on scroll
-    gsap.fromTo(
+    const imageAnimation = gsap.fromTo(
       imageRef.current,
       { y: 40, opacity: 0, scale: 0.97 },
       {
@@ -50,7 +50,10 @@ export default function BuildNextSection() {
       }
     );
 
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    return () => {
+      textAnimation.scrollTrigger?.kill();
+      imageAnimation.scrollTrigger?.kill();
+    };
   }, []);
 
   return (
