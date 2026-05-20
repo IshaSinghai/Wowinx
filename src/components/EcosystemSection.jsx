@@ -14,7 +14,7 @@ export default function EcosystemSection() {
     const section = sectionRef.current;
     if (!section) return;
 
-    gsap.fromTo(
+    const imageAnimation = gsap.fromTo(
       imageRef.current,
       { x: -60, opacity: 0, scale: 0.95 },
       {
@@ -31,7 +31,7 @@ export default function EcosystemSection() {
       }
     );
 
-    gsap.fromTo(
+    const textAnimation = gsap.fromTo(
       textRef.current,
       { x: 60, opacity: 0 },
       {
@@ -48,14 +48,16 @@ export default function EcosystemSection() {
       }
     );
 
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    return () => {
+      imageAnimation.scrollTrigger?.kill();
+      textAnimation.scrollTrigger?.kill();
+    };
   }, []);
 
   return (
     <section
       ref={sectionRef}
       className="w-full py-28 md:py-40 px-6 md:px-12 bg-bg"
-      id="companies"
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left: 3D Cross Image */}

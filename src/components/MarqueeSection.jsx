@@ -13,7 +13,7 @@ export default function MarqueeSection() {
 
     let currentSpeed = 0.8;
 
-    ScrollTrigger.create({
+    const marqueeTrigger = ScrollTrigger.create({
       trigger: track,
       start: 'top bottom',
       end: 'bottom top',
@@ -35,8 +35,7 @@ export default function MarqueeSection() {
       },
     });
 
-    return () =>
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => marqueeTrigger.kill();
   }, []);
 
   const marqueeContent = (
