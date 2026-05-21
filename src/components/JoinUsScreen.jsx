@@ -16,350 +16,278 @@ const tabs = [
   {
     id: 'jobs',
     title: 'Jobs',
-
-    heading: 'Eres extraordinario en algo',
-
-    description:
-      'Buscamos personas con experiencia real, criterio propio y espíritu creador. El ecosistema tiene un lugar para los mejores en lo que hacen.',
-
-    button: 'Quiero sumarme',
-
-    image:
-      '/images/JoinUs1.png',
+    headingColor: '#E3E3E3',
+    heading: `There's room here for extraordinary people.`,
+    description: `At wowinX, we build with people who already know what they're doing — and who want to do it as part of something bigger than a single project.`,
+    button: 'Join Us',
+    buttonAction: 'contact',
+    image: '/images/JoinUs1.png',
   },
-
   {
     id: 'students',
     title: 'Students',
-
-    heading: 'Pending',
-
-    description:
-      'Buscamos personas con experiencia real, criterio propio y espíritu creador. El ecosistema tiene un lugar para los mejores en lo que hacen.',
-
-    button: 'Quiero sumarme',
-
-    image: '/images/JoinUs2.png',
+    headingColor: '#FFF',
+    heading: `The best careers begin before graduation.`,
+    description: `wowinX opens the doors of its companies to students who already think like professionals. We care less about your academic record than about the way you see the world.\n\nWe'll figure out the rest together.`,
+    button: 'Join Us',
+    buttonAction: 'contact',
+    image: '/images/JoinUs3.png',
+    // NOTE: headingColor #FFF — no red, no "Pending"
   },
-
   {
     id: 'empresa',
     title: 'Empresa',
-
-    heading: 'Build meaningful things.',
-
-    description:
-      'We partner with ambitious builders creating products and experiences for the future.',
-
-    button: 'Explore',
-
-    image:
-      '/images/JoinUs3.png',
+    headingColor: '#E3E3E3',
+    heading: `You see opportunity in what we're building.`,
+    description: `If your business can grow within or alongside wowinX, let's talk. Co-creation and execution are our common language.`,
+    button: 'Connect with us',
+    buttonAction: null,
+    image: '/images/JoinUs3.png',
   },
-
   {
     id: 'inversor',
     title: 'Inversor',
-
-    heading: 'Invest in what matters.',
-
-    description:
-      'Join a network of founders, operators and investors building long-term impact.',
-
-    button: 'Learn more',
-
-    image:
-      '/images/JoinUs5.png',
+    headingColor: '#FFF',
+    heading: `You want to be there from the start.`,
+    description: `wowinX builds position before the market catches up. If you share that vision, there are conversations worth having.`,
+    button: 'Explore',
+    buttonAction: null,
+    image: '/images/JoinUs5.png',
   },
 ];
+
+/* =========================================================
+   SHARED STYLES
+========================================================= */
+
+const headingStyle = {
+  fontFamily: '"PP Neue Montreal", sans-serif',
+  fontSize: '48px',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  lineHeight: '56px',
+  letterSpacing: '-0.48px',
+};
+
+const bodyStyle = {
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: '24px',
+};
+
+const gradientText = {
+  background: 'linear-gradient(270deg, #F2E7C9 18.11%, #E9C9D6 42.04%, #D6CFEA 71.95%, #BFD7EE 99.87%)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  backgroundClip: 'text',
+};
 
 /* =========================================================
    PAGE
 ========================================================= */
 
-export default function JoinUsPage({
-  currentPage,
-  setCurrentPage,
-}) {
-  const [activeTab, setActiveTab] =
-    useState('jobs');
-
-  const activeContent = tabs.find(
-    (tab) => tab.id === activeTab
-  );
+export default function JoinUsPage({ currentPage, setCurrentPage }) {
+  const [activeTab, setActiveTab] = useState('jobs');
+  const [hoveredTab, setHoveredTab] = useState(null);
+  const activeContent = tabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="bg-black text-white overflow-hidden">
-      {/* =========================================================
-          CORRECT NAVBAR COMPONENT
-      ========================================================= */}
+    <div className="bg-black text-white">
 
-      <Navbar
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       {/* =========================================================
-          HERO SECTION (KEEP SAME)
+          HERO SECTION
       ========================================================= */}
-
       <section id="JoinUsScreen" className="relative w-full h-[760px] overflow-hidden">
         <img
           src="/images/JoinUs1.png"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
-
         <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative z-10 w-[90%] max-w-[1280px] mx-auto h-full flex items-center">
-          <div>
-            <motion.h1
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-              className="
-                text-[44px]
-                md:text-[72px]
-                leading-[1.02]
-                font-medium
-                max-w-[850px]
-              "
-            >
-              Great people build great companies.
-            </motion.h1>
-
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.2,
-                duration: 0.8,
-              }}
-              className="
-                text-white/70
-                mt-8
-                max-w-[560px]
-                text-[16px]
-                md:text-lg
-                leading-relaxed
-              "
-            >
-              We’re looking for ambitious people
-              who want to shape the future of
-              technology, culture and human
-              experiences.
-            </motion.p>
-
-            <motion.button
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-              }}
-              className="
-                mt-10
-                border border-white/20
-                px-6 py-3
-                flex items-center gap-2
-                hover:bg-white
-                hover:text-black
-                transition
-              "
-            >
-              Explore opportunities
-
-              <ArrowUpRight size={18} />
-            </motion.button>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontFamily: '"PP Neue Montreal", sans-serif',
+              fontSize: '48px',
+              fontStyle: 'normal',
+              fontWeight: 500,
+              lineHeight: '56px',
+              letterSpacing: '-0.48px',
+              color: '#FFF',
+              width: '628px',
+              height: '168px',
+              margin: 0,
+              overflow: 'hidden',
+            }}
+          >
+            Some people were born to build what comes next. This is for them.
+          </motion.h1>
         </div>
       </section>
 
       {/* =========================================================
-          TABS SECTION (KEEP SAME)
+          TABS SECTION
       ========================================================= */}
-
       <section className="w-full py-20 md:py-24 bg-black">
         <div className="w-[90%] max-w-[1280px] mx-auto">
-          {/* TABS */}
-          <div className="flex items-center gap-8 md:gap-12 mb-16 md:mb-20 overflow-x-auto scrollbar-hide">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() =>
-                  setActiveTab(tab.id)
-                }
-                className={`
-                  relative
-                  text-[24px]
-                  md:text-[38px]
-                  leading-none
-                  transition-all
-                  duration-300
-                  whitespace-nowrap
-                  ${
-                    activeTab === tab.id
-                      ? 'text-white'
-                      : 'text-[#5A5A66] hover:text-white/80'
-                  }
-                `}
-              >
-                {tab.title}
 
-                {activeTab === tab.id && (
-                  <motion.div
-                    layoutId="underline"
-                    className="
-                      absolute
-                      left-0
-                      -bottom-2
-                      w-full
-                      h-[2px]
-                      bg-white
-                    "
-                  />
-                )}
-              </button>
-            ))}
+          {/* TAB LABELS */}
+          <div className="flex items-center gap-8 md:gap-12 mb-16 md:mb-20 overflow-x-auto scrollbar-hide">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              const isHovered = hoveredTab === tab.id;
+              const highlight = isActive || isHovered;
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  onMouseEnter={() => setHoveredTab(tab.id)}
+                  onMouseLeave={() => setHoveredTab(null)}
+                  style={{
+                    position: 'relative',
+                    fontSize: '38px',
+                    lineHeight: 1,
+                    fontWeight: 500,
+                    fontFamily: '"PP Neue Montreal", sans-serif',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: '0 0 8px 0',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.3s ease',
+                    ...(highlight
+                      ? gradientText
+                      : { color: '#5A5A66' }),
+                  }}
+                >
+                  {tab.title}
+
+                  {/* underline — active (layoutId animated) */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="underline"
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        bottom: 0,
+                        width: '100%',
+                        height: '2px',
+                        background: 'linear-gradient(270deg, #F2E7C9 18.11%, #E9C9D6 42.04%, #D6CFEA 71.95%, #BFD7EE 99.87%)',
+                      }}
+                    />
+                  )}
+
+                  {/* underline — hover only (not active) */}
+                  {isHovered && !isActive && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        bottom: 0,
+                        width: '100%',
+                        height: '2px',
+                        background: 'linear-gradient(270deg, #F2E7C9 18.11%, #E9C9D6 42.04%, #D6CFEA 71.95%, #BFD7EE 99.87%)',
+                        opacity: 0.5,
+                      }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {/* CONTENT */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                y: -30,
-              }}
-              transition={{
-                duration: 0.4,
-              }}
-              className="
-                grid
-                grid-cols-1
-                lg:grid-cols-2
-                gap-12
-                lg:gap-16
-                items-center
-              "
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
             >
               {/* LEFT */}
               <div>
-                <h2
-                  className={`
-                    text-[40px]
-                    md:text-[58px]
-                    leading-[1.02]
-                    font-medium
-                    max-w-[470px]
-                    ${
-                      activeTab === 'students'
-                        ? 'text-red-500'
-                        : 'text-white'
-                    }
-                  `}
-                >
+
+                {/* HEADING — color comes from tab data, never from className */}
+                <h2 style={{
+                  fontFamily: '"PP Neue Montreal", sans-serif',
+                  fontSize: '48px',
+                  fontStyle: 'normal',
+                  fontWeight: 500,
+                  lineHeight: '56px',
+                  letterSpacing: '-0.48px',
+                  color: activeContent.headingColor,
+                  maxWidth: '470px',
+                  margin: 0,
+                }}>
                   {activeContent.heading}
                 </h2>
 
-                <p className="text-white/60 mt-8 max-w-[420px] leading-relaxed">
+                {/* BODY */}
+                <p style={{
+                  ...bodyStyle,
+                  color: '#FFF',
+                  marginTop: '32px',
+                  maxWidth: '420px',
+                  whiteSpace: 'pre-line',
+                }}>
                   {activeContent.description}
                 </p>
 
+                {/* BUTTON */}
                 <button
+                  onClick={() => {
+                    if (activeContent.buttonAction === 'contact') {
+                      setCurrentPage('contact');
+                    }
+                  }}
                   className="
-                    mt-10
-                    border border-white/20
-                    px-6 py-3
-                    flex items-center gap-2
-                    hover:bg-white
-                    hover:text-black
-                    transition
+                    mt-10 border border-white/20
+                    px-6 py-3 flex items-center gap-2
+                    hover:bg-white hover:text-black transition
                   "
                 >
                   {activeContent.button}
-
                   <ArrowUpRight size={18} />
                 </button>
+
               </div>
 
-              {/* RIGHT */}
+              {/* RIGHT — IMAGE */}
               <div className="relative overflow-hidden">
-                {activeContent.image ? (
-                  <motion.img
-                    key={activeContent.image}
-                    initial={{
-                      opacity: 0,
-                      scale: 1.04,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                    }}
-                    transition={{
-                      duration: 0.5,
-                    }}
-                    src={activeContent.image}
-                    alt=""
-                    className="
-                      w-full
-                      h-[320px]
-                      md:h-[500px]
-                      object-cover
-                    "
-                  />
-                ) : (
-                  <div className="w-full h-[320px] md:h-[500px] bg-red-600" />
-                )}
+                <motion.img
+                  key={activeContent.image}
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src={activeContent.image}
+                  alt=""
+                  className="w-full h-[320px] md:h-[500px] object-cover"
+                />
               </div>
+
             </motion.div>
           </AnimatePresence>
+
         </div>
       </section>
 
       {/* =========================================================
-          REMOVE EVERYTHING BELOW
-          AND USE YOUR ORIGINAL COMPONENTS
+          MARQUEE + FOOTER
       ========================================================= */}
+      <MarqueeSection />
+      <Footer />
 
-      <section id="marquee">
-        <MarqueeSection />
-      </section>
-
-      <section id="contact">
-        <Footer />
-      </section>
-
-      {/* Anchor for navbar hash navigation */}
       <div id="joinUsAnchor" className="h-0" />
     </div>
   );

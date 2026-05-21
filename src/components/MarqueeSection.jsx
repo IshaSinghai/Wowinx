@@ -11,21 +11,13 @@ export default function MarqueeSection() {
     const track = trackRef.current;
     if (!track) return;
 
-    let currentSpeed = 0.8;
-
     const marqueeTrigger = ScrollTrigger.create({
       trigger: track,
       start: 'top bottom',
       end: 'bottom top',
       onUpdate: (self) => {
         const velocity = Math.abs(self.getVelocity());
-
-        currentSpeed = gsap.utils.clamp(
-          0.6,
-          1.2,
-          velocity / 4000
-        );
-
+        const currentSpeed = gsap.utils.clamp(0.6, 1.2, velocity / 4000);
         gsap.to(track, {
           '--marquee-speed': currentSpeed,
           duration: 4,
@@ -40,152 +32,53 @@ export default function MarqueeSection() {
 
   const marqueeContent = (
     <>
-      <span className="text-[clamp(2rem,5vw,4.5rem)] font-semibold text-white tracking-[-0.03em] whitespace-nowrap">
-        The renaissance
+      <span style={{
+        fontFamily: '"PP Neue Montreal", sans-serif',
+        fontSize: '48px',
+        fontWeight: 400,
+        lineHeight: '48px',
+        color: '#111110',
+        whiteSpace: 'nowrap',
+      }}>
+        The renaissance of the 22nd century
       </span>
-
-      <div className="w-[140px] h-[74px] md:w-[193px] md:h-[102px] overflow-hidden flex-shrink-0 mx-4 md:mx-6 opacity-100">
-        <img
-          src="/images/earth.png"
-          alt="Earth"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-      </div>
-
-      <span className="text-[clamp(2rem,5vw,4.5rem)] font-semibold text-white tracking-[-0.03em] whitespace-nowrap">
-        of the 22nd century
+      <span style={{
+        fontFamily: '"PP Neue Montreal", sans-serif',
+        fontSize: '48px',
+        fontWeight: 400,
+        lineHeight: '48px',
+        color: '#111110',
+        whiteSpace: 'nowrap',
+        margin: '0 32px',
+      }}>
+        /
       </span>
-
-      <div className="w-[140px] h-[74px] md:w-[193px] md:h-[102px] overflow-hidden flex-shrink-0 mx-4 md:mx-6 opacity-100">
-        <img
-          src="/images/silver metal.png"
-          alt="Silver metal"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-      </div>
     </>
   );
 
   return (
-    <section className="w-full overflow-hidden bg-[#111110] border-y border-white/[0.06]">
-
-      {/* Marquee */}
-      <div className="py-10 md:py-14">
+    <section style={{ width: '100%', overflow: 'hidden', backgroundColor: '#F8F5EF', borderTop: '1px solid rgba(17,17,16,0.08)', borderBottom: '1px solid rgba(17,17,16,0.08)' }}>
+      <div style={{ padding: '24px 0 32px 0' }}>
         <div
           ref={trackRef}
-          className="flex items-center"
-          style={{ '--marquee-speed': 1 }}
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', '--marquee-speed': 1 }}
         >
           <div
-            className="flex items-center gap-4 md:gap-6 marquee-track animate-marquee"
+            className="animate-marquee"
             style={{
-              animationDuration:
-                'calc(90s / var(--marquee-speed))',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0px',
+              animationDuration: 'calc(90s / var(--marquee-speed))',
             }}
           >
             {marqueeContent}
-            <span className="mx-6 md:mx-10" />
-
             {marqueeContent}
-            <span className="mx-6 md:mx-10" />
-
             {marqueeContent}
-            <span className="mx-6 md:mx-10" />
+            {marqueeContent}
+            {marqueeContent}
+            {marqueeContent}
           </div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="border-t border-white/[0.06] px-5 sm:px-6 md:px-12 py-10 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-white">
-
-          {/* Brand */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold lowercase tracking-tight">
-              wowinx
-            </h2>
-
-            <p className="text-sm text-white/60 mt-2">
-              Claim...
-            </p>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="text-sm sm:text-base font-medium mb-5 md:mb-6">
-              Links and resources
-            </h3>
-
-            <div className="flex flex-col gap-3 md:gap-4 text-sm text-white/70">
-              <a
-                href="#"
-                className="
-                  w-fit
-                  text-sm sm:text-base
-                  hover:text-white
-                  transition-colors
-                  duration-300
-                "
-              >
-                The story
-              </a>
-
-              <a
-                href="#"
-                className="
-                  w-fit
-                  text-sm sm:text-base
-                  hover:text-white
-                  transition-colors
-                  duration-300
-                "
-              >
-                Our vision
-              </a>
-            </div>
-          </div>
-
-          {/* Subscribe */}
-          <div className="w-full">
-            <h3 className="text-sm sm:text-base font-medium mb-5 md:mb-6">
-              Subscribe
-            </h3>
-
-            <p className="text-sm text-white/60 mb-5 leading-relaxed max-w-md">
-              Subscribe to our newsletter for the latest news,
-              tournaments and exclusive content
-            </p>
-
-            <div className="w-full max-w-md">
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                className="
-                  w-full
-                  bg-transparent
-                  border
-                  border-white/[0.08]
-                  rounded-md
-                  px-4
-                  py-3
-                  text-sm
-                  sm:text-base
-                  text-white
-                  placeholder:text-white/30
-                  outline-none
-                  focus:border-white/20
-                  transition-colors
-                "
-              />
-
-              <p className="text-xs text-white/30 mt-3">
-                No spam. Unsubscribe anytime.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
