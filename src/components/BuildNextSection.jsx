@@ -2,11 +2,13 @@ import { useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from 'react-i18next';
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BuildNextSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const textRef = useRef(null);
@@ -65,17 +67,12 @@ export default function BuildNextSection() {
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         {/* Left: Text */}
         <div ref={textRef} className="order-2 md:order-1">
-          <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]">
-            We build what's next.
-            <br />
-            Join us.
+          <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]" style={{ whiteSpace: 'pre-line' }}>
+            {t('buildNext.title')}
           </h2>
 
           <p className="text-body-lg text-text-secondary max-w-[500px] mb-8 leading-relaxed">
-            We are not typical companies. We are 22nd-century
-            Renaissance people. A living ecosystem that flows,
-            always seeking collaborators with great experience and
-            a creative spirit, eager to build something that matters.
+            {t('buildNext.description')}
           </p>
 
           <a
@@ -83,7 +80,7 @@ export default function BuildNextSection() {
             className="btn-outline group"
             id="btn-positions"
           >
-            View open positions
+            {t('buildNext.cta')}
             <ArrowUpRight
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar';
 import MarqueeSection from './MarqueeSection';
 import Footer from './Footer';
@@ -65,6 +66,7 @@ export default function VentureScreen({
   currentPage,
   setCurrentPage,
 }) {
+  const { t } = useTranslation();
   const [selectedId, setSelectedId] = useState(null);
 
   return (
@@ -102,17 +104,13 @@ export default function VentureScreen({
           {/* Heading */}
           <h2 className="venture-heading">
             <span className="desktop-heading">
-              We invest in companies building the
-              future of
-              <br />
-              technology, culture and human
-              experience.
+              {t('venture.heading').split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </span>
 
             <span className="mobile-heading">
-              We invest in companies building
-              the future of technology, culture
-              and human experience.
+              {t('venture.heading_mobile')}
             </span>
           </h2>
 

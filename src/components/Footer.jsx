@@ -1,10 +1,12 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
+  const { t } = useTranslation();
   const footerRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -50,21 +52,21 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           
           <p className="text-xs text-white/50">
-            2026. All rights reserved.
+            {t('footer.rights')}
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
             {[
-              'Privacy policy',
-              'Cookies policy',
-              'Legal notice',
-            ].map((link) => (
+              { key: 'footer.privacy', label: t('footer.privacy') },
+              { key: 'footer.cookies', label: t('footer.cookies') },
+              { key: 'footer.legal', label: t('footer.legal') },
+            ].map(({ key, label }) => (
               <a
-                key={link}
+                key={key}
                 href="#"
                 className="text-xs text-white/60 hover:text-white transition-colors duration-300 underline underline-offset-2"
               >
-                {link}
+                {label}
               </a>
             ))}
           </div>

@@ -2,12 +2,14 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cities = ['Miami', 'Dubai', 'Madrid', 'Andorra', 'Medellín'];
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const textRef = useRef(null);
@@ -100,9 +102,7 @@ export default function HeroSection() {
               overflow-visible
             `}
           >
-            The constellation of companies behind the
-            
-            next generation of human experiences
+            {t('hero.title')}
           </h1>
 
           <motion.div

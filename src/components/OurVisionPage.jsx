@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import MarqueeSection from './MarqueeSection';
 import Footer from './Footer';
@@ -10,6 +11,7 @@ import Footer from './Footer';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function OurVisionPage() {
+  const { t } = useTranslation();
   const heroRef = useRef(null);
   const heroImageRef = useRef(null);
   const manifestoRef = useRef(null);
@@ -21,27 +23,11 @@ export default function OurVisionPage() {
 
   const [activePoint, setActivePoint] = useState(0);
 
-  const accordionItems = [
-    {
-      number: '/01',
-      title: 'El momento en que todo converge',
-      text: 'Deporte, entretenimiento, cultura, negocio y digital se fusionan en un solo espacio de experiencia humana — explorando infinitas, nuevas vistas en esta esfera. La identidad entre casi el mercado y construyó posición desde el origen.',
-      image: '/images/vision3.png',
-    },
-    {
-      number: '/02',
-      title: 'Donde otros ven sectores, wowinx ve conexiones',
-      text: 'Construir otros tres sectores, impactar en la comunicación.',
-      image: '/images/vision4.png',
-    },
-    {
-      number: '/03',
-      title:
-        'Una economía más inteligente, más inmersiva y más humana.',
-      text: 'Ese es el mundo que wowinx está construyendo. Empresas con valor económico y con valores humanos, porque ambos crecen cuando juntas. El digital es el territorio. Las personas, la razón de todo.',
-      image: '/images/vision5.png',
-    },
-  ];
+  const accordionImages = ['/images/vision3.png', '/images/vision4.png', '/images/vision5.png'];
+  const accordionItems = (t('vision.accordion', { returnObjects: true })).map((item, i) => ({
+    ...item,
+    image: accordionImages[i],
+  }));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -174,9 +160,7 @@ export default function OurVisionPage() {
                     'PP Neue Montreal, Inter, sans-serif',
                 }}
               >
-                Construimos lo que viene. Con
-                <br />
-                personas. En digital.
+                {t('vision.hero')}
               </h1>
             </motion.div>
           </div>
@@ -197,10 +181,7 @@ export default function OurVisionPage() {
                     'PP Neue Montreal, Inter, sans-serif',
                 }}
               >
-                IGUAL QUE EL RENACIMIENTO MEZCLÓ ARTE, CIENCIA Y
-                COMERCIO PARA ABRIR UN MUNDO NUEVO — WOWINX MEZCLA
-                CULTURA, TECNOLOGÍA Y NEGOCIO PARA CONSTRUIR EL
-                SIGUIENTE
+                {t('vision.manifesto')}
               </h2>
             </div>
 
@@ -214,7 +195,7 @@ export default function OurVisionPage() {
               >
                 <span className="w-14 h-px bg-white/50 block" />
                 <span className="uppercase tracking-[0.02em]">
-                  FLOWIT
+                  {t('vision.flowit')}
                 </span>
                 <ArrowUpRight
                   size={15}
@@ -254,7 +235,7 @@ export default function OurVisionPage() {
                       'PP Neue Montreal, Inter, sans-serif',
                   }}
                 >
-                  Our vision
+                  {t('vision.ourVision')}
                 </h2>
               </div>
 

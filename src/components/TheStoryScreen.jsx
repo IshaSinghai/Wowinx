@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import MarqueeSection from './MarqueeSection';
 import Footer from './Footer';
@@ -13,19 +14,9 @@ const FONT_STYLE = {
   letterSpacing: '-0.56px',
 };
 
-const paragraphs = [
-  `wowinX was born from that decision. From the conviction that the digital world was about to be transformed completely — and that those who arrived early, with vision and the right people, would define the rules. Since 2009, we've been building in that territory. Learning the problems before the market knew they existed. Accumulating the kind of knowledge that only comes from arriving first.`,
-
-  `Hoy somos un ecosistema de empresas que opera en los espacios donde la vida humana digital ocurre: el deporte y la competición, el entretenimiento y la cultura, la música y la creación, las nuevas economías y los activos digitales, la formación, la comunidad, la identidad y la seguridad.`,
-
-  `Una creencia atraviesa todo lo que construimos: la tecnología es el mayor superpoder que hemos creado. Las personas, la razón de todo.`,
-
-  `XR, inteligencia artificial y Web3 son las herramientas. Lo que importa es lo que ocurre cuando esas herramientas amplían lo humano, cuando el deporte llega a cualquier lugar del mundo, cuando el conocimiento de un ídolo se vuelve accesible, cuando la música recupera su verdad, cuando cualquier persona puede competir, crear y conectar sin límites geográficos ni barreras económicas.`,
-
-  `Eso es wowinX, un ecosistema construido por personas que decidieron transitar nuevos caminos y que siguen construyendo.`,
-];
-
 export default function StoryScreen() {
+  const { t } = useTranslation();
+  const paragraphs = t('story.paragraphs', { returnObjects: true });
   const paraRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -71,8 +62,9 @@ export default function StoryScreen() {
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             margin: 0,
+            whiteSpace: 'pre-line',
           }}>
-            Digital is the territory. <br />People are the reason behind it all. 
+            {t('story.hero')}
           </h1>
         </div>
       </section>
@@ -84,7 +76,7 @@ export default function StoryScreen() {
           color: '#F8F8F8',
           margin: 0,
         }}>
-          There have always been people who choose to build their lives instead of letting life happen to them. People who choose the path before it exists. People who commit to what doesn't yet have a name — and keep going while the world still doesn't understand why.
+          {t('story.intro')}
         </p>
       </section>
 

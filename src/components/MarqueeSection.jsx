@@ -1,10 +1,12 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MarqueeSection() {
+  const { t } = useTranslation();
   const trackRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ export default function MarqueeSection() {
         color: '#111110',
         whiteSpace: 'nowrap',
       }}>
-        The renaissance of the 22nd century
+        {t('marquee.text')}
       </span>
       <span style={{
         fontFamily: '"PP Neue Montreal", sans-serif',

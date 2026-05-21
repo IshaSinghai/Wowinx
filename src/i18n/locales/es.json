@@ -1,0 +1,247 @@
+{
+  "navbar": {
+    "links": {
+      "companies": "Empresas",
+      "ventures": "Ventures",
+      "joinUs": "Únete"
+    },
+    "dropdown": {
+      "home": "Inicio",
+      "story": "La historia",
+      "vision": "Nuestra visión"
+    },
+    "actions": {
+      "getInTouch": "Contáctanos",
+      "languageCode": "ES"
+    },
+    "mobile": {
+      "ourCompanies": "Nuestras empresas",
+      "venture": "Venture",
+      "joinUs": "Únete",
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "contact": {
+      "title": "Contacto",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "whoAmI": "¿Quién soy?",
+      "selectPlaceholder": "Seleccionar",
+      "options": {
+        "founder": "Fundador",
+        "customer": "Cliente",
+        "company": "Empresa",
+        "investor": "Inversor",
+        "media": "Medios"
+      },
+      "email": "Correo electrónico",
+      "message": "Mensaje (Opcional)",
+      "messagePlaceholder": "Describe tu proyecto...",
+      "sendForm": "Enviar formulario ↗",
+      "emailSubject": "Nuevo mensaje de contacto",
+      "emailBody": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "whoAmI": "Quién soy",
+        "email": "Correo",
+        "message": "Mensaje"
+      }
+    }
+  },
+  "hero": {
+    "title": "La constelación de empresas detrás de la próxima generación de experiencias humanas"
+  },
+  "buildNext": {
+    "title": "Construimos lo que viene.\nÚnete.",
+    "description": "No somos empresas típicas. Somos personas del Renacimiento del siglo XXII. Un ecosistema vivo que fluye, siempre en búsqueda de colaboradores con gran experiencia y espíritu creativo, con ganas de construir algo que importe.",
+    "cta": "Ver posiciones abiertas"
+  },
+  "ecosystem": {
+    "title": "Cada empresa del\necosistema abre\npuertas a las\nsiguientes.",
+    "description": "Si ves una oportunidad de negocio en lo que estamos construyendo, hablemos. Aquí, la ejecución es el lenguaje común.",
+    "cta": "Hablemos"
+  },
+  "marquee": {
+    "text": "El renacimiento del siglo XXII"
+  },
+  "companies": {
+    "heading": "Descubre el ecosistema detrás de wowinx.\nDe infraestructura a cultura.",
+    "categories": {
+      "all": "Todos",
+      "infrastructure": "Infraestructura",
+      "tech": "Tecnología",
+      "sports": "Deportes",
+      "entertainment": "Entretenimiento",
+      "money": "Finanzas",
+      "culture": "Cultura"
+    },
+    "letsTalk": "Hablemos",
+    "data": {
+      "prismaXr": {
+        "description": "Estudio de desarrollo XR especializado en llevar el movimiento físico humano a entornos digitales en tiempo real.",
+        "longDescription": "Más de una década resolviendo uno de los desafíos más complejos de XR: convertir el movimiento físico humano en una interfaz digital precisa, fluida y escalable. Su experiencia en latencia, sincronización corporal, lógica de movimiento y arquitectura inmersiva le permite crear entornos donde el cuerpo actúa en tiempo real dentro del espacio digital. En 2026, mientras XR avanza hacia la adopción masiva, PrismaXR opera desde una posición de ventaja construida mucho antes de que el mercado entendiera su valor."
+      },
+      "WIA+": {
+        "description": "Infraestructura de modelos de IA propietarios para entornos regulados y productos inmersivos.",
+        "longDescription": "La fábrica de inteligencia artificial de wowinX. WIA diseña, entrena y despliega la infraestructura de IA del grupo con control soberano, aportando trazabilidad, control y autonomía operativa a entornos exigentes. Su especialización combina LLMs deterministas para sectores regulados con LLMs generativos para productos donde la creatividad y la expresión son centrales. Desde esta base, wowinX construye la capa más profunda de su stack de IA."
+      },
+      "Aethern": {
+        "description": "Infraestructura blockchain diseñada para banca, mercados de capitales e instituciones financieras.",
+        "longDescription": "Construye infraestructura blockchain especializada para el sector financiero. Diseña cada capa del stack on-chain — consenso, ejecución, liquidación, identidad y cumplimiento — para satisfacer las demandas reales de bancos, gestores de activos e emisores institucionales. Su enfoque vertical, combinado con experiencia probada desarrollando para grandes clientes financieros, coloca a Aethern entre las pocas empresas capaces de unir arquitectura de protocolo con lógica de riesgo institucional."
+      },
+      "Trivium": {
+        "description": "Ingeniería full stack transversal que sustenta la arquitectura técnica del ecosistema.",
+        "longDescription": "Es la empresa full-stack de wowinX y la capa técnica que sustenta al resto del grupo. Construye y mantiene la infraestructura transversal que permite a cada empresa centrarse en su producto, respaldada por una base robusta, interoperable y escalable. Su trabajo abarca sistemas de respaldo, integraciones, puentes entre arquitecturas y coherencia técnica en diferentes entornos. Trivium convierte un ecosistema de empresas en una arquitectura tecnológica sólida y conectada."
+      },
+      "BeFootBall": {
+        "description": "La capa inmersiva del deporte más universal: conectando fans, clubes, ligas y federaciones en VR.",
+        "longDescription": "Construye, a través de VR, la capa inmersiva del deporte más universal del mundo: un ecosistema donde fans, clubes, ligas, federaciones y marcas convierten el fútbol en participación, movimiento, comunidad y negocio. Su fortaleza proviene de la intersección entre las grandes empresas tecnológicas, la demanda global del fútbol y las nuevas generaciones que ya consumen, socializan y compiten en entornos interactivos. BeFootball aporta contenido oficial, legitimidad deportiva y activación real."
+      },
+      "VirtualSports": {
+        "description": "Una nueva categoría deportiva en realidad virtual con movimiento físico real y competición estructurada.",
+        "longDescription": "Crea una nueva categoría deportiva en realidad virtual, con sus propias reglas, movimiento físico real y competición estructurada. Convierte la experiencia digital en presencia física, esfuerzo y juego compartido. Su escala va desde el hogar hasta arenas físicas, abriendo un nuevo espacio para ligas, eventos y campeonatos para una generación moldeada por entornos interactivos."
+      },
+      "BeSportsAcademy": {
+        "description": "Entrenamiento deportivo de élite a través de realidad virtual, accesible desde cualquier lugar.",
+        "longDescription": "Lleva el conocimiento de élite a cualquier jugador a través de la realidad virtual. Convierte el entrenamiento deportivo en una experiencia inmersiva, guiada, repetible y medible, accesible desde cualquier lugar. Su enfoque se centra en desarrollar la inteligencia deportiva: toma de decisiones bajo presión, anticipación, lectura táctica, orientación corporal y percepción espacial. BeSports Academy transforma un visor de realidad virtual en la puerta de acceso a un nuevo nivel de entrenamiento."
+      },
+      "AldolsX": {
+        "description": "Convierte la distancia entre un ídolo y su audiencia en un producto a través de gemelos digitales oficiales.",
+        "longDescription": "Convierte una de las mayores limitaciones del entretenimiento en un producto: la distancia entre un ídolo y su audiencia. Construye gemelos digitales oficiales, entrenados con la voz, sensibilidad, imagen y universo narrativo del ídolo. De esta manera, la identidad del ídolo se convierte en una presencia conversacional, inmersiva y generadora de valor capaz de generar negocio recurrente y preservar su legado cultural a largo plazo."
+      },
+      "Stratos": {
+        "description": "Red de cómputo distribuido de baja latencia orientada a cargas de trabajo de IA en el edge.",
+        "longDescription": "Stratos opera una red de nodos de cómputo distribuidos para llevar la inferencia de IA al borde de la red."
+      },
+      "IMM3RSIVE": {
+        "description": "El proyecto XR de wowinX y la infraestructura que necesita la nueva industria inmersiva.",
+        "longDescription": "IMM3RSIVE es el proyecto XR de wowinX y la infraestructura que la nueva industria inmersiva necesita para operar. Construye IMM Units — la unidad estándar de consumo inmersivo para medir, presupuestar y liquidar experiencias XR a escala. Su token $IMM opera como el riel invisible que impulsa esa economía, mientras wowinX valida el estándar a través de demanda real de BeFootball y VirtualSports antes de abrirlo a la industria."
+      },
+      "WX180Productions": {
+        "description": "Estudio inmersivo boutique para sectores de alto valor: instituciones, deporte, lujo y hostelería.",
+        "longDescription": "Produce experiencias inmersivas para sectores y clientes de alto valor: instituciones, deporte, lujo y hostelería. Opera como un estudio boutique — pocos proyectos al año, máxima calidad. Convierte la comunicación en experiencia a través de una idea simple: la presencia convierte el interés en decisión."
+      },
+      "True'sMusic": {
+        "description": "El oráculo neutro del streaming musical, convirtiendo cada reproducción en prueba verificable de valor.",
+        "longDescription": "Es el oráculo neutro del streaming musical: una capa de certificación que convierte cada reproducción en prueba verificable, trazable y auditable de valor. Esos datos certificados aportan mayor confianza a la economía del streaming actual y crean la base necesaria para llevar la música a Web3, desde la tokenización de catálogos hasta las regalías blockchain y la financiación de artistas a través de activos digitales."
+      },
+      "GROWFY": {
+        "description": "Plataforma para crear, escalar y monetizar comunidades digitales en torno a educación y conocimiento.",
+        "longDescription": "Es una plataforma diseñada para crear, escalar y monetizar comunidades digitales en torno a la educación, el conocimiento y los productos digitales. Integra cursos, membresías, comunidad, eventos y herramientas de participación en un único entorno, convirtiendo el aprendizaje en una experiencia continua. Su valor radica en transformar contenidos y programas en ecosistemas vivos, aumentando la retención, el engagement repetido y la solidez de la relación entre creadores y usuarios."
+      },
+      "KeyQuest": {
+        "description": "Plataforma unificada de analítica e inteligencia para el mercado de aplicaciones VR/AR.",
+        "longDescription": "Resuelve la falta de datos consolidados en el mercado de aplicaciones VR/AR. Unifica analítica, seguimiento de palabras clave y competidores, estimación de ingresos, tendencias de categoría e informes generados por IA en un único dashboard diseñado para el ecosistema inmersivo. Su posición dentro de wowinX le permite nutrirse de datos reales de aplicaciones en vivo y llegar al mercado justo cuando VR/AR empieza a necesitar inteligencia más precisa para crecer."
+      },
+      "Ownia": {
+        "description": "Plataforma de IA privada para empresas que convierte el conocimiento corporativo en conversación.",
+        "longDescription": "Es una plataforma de inteligencia artificial privada para empresas que convierte el conocimiento corporativo en una conversación. Accede a la documentación interna de cada división, responde con fuentes citadas y recuerda el contexto de cada usuario entre sesiones. Redacta informes, resume documentos, compara textos, genera archivos, transcribe audio y se conecta a repositorios de código a través de una interfaz conversacional. Su modelo SaaS multi-instancia permite a cada organización operar en un entorno aislado, con su propio conocimiento, marca y control."
+      },
+      "Seetrex": {
+        "description": "Sistema de IA determinista para entornos regulados donde cada decisión debe ser explicable y auditable.",
+        "longDescription": "Es un sistema de IA determinista diseñado para entornos regulados, donde cada decisión debe ser explicable, reproducible y auditable. Produce el mismo resultado para la misma entrada, con trazabilidad completa y verificación de terceros. Esa capacidad lo convierte en el puente entre la inteligencia artificial moderna y los sistemas heredados en banca, finanzas y procesos regulatorios — y la capa que valida cada decisión crítica dentro de la arquitectura de wowinX."
+      },
+      "Bullfy": {
+        "description": "Firma de trading propietaria impulsada por comunidades que da a traders talentosos acceso a capital real.",
+        "longDescription": "Es una firma de trading propietaria impulsada por comunidades, que da a traders talentosos acceso a capital real a través de una experiencia simple, rápida y transparente. Quienes superan su evaluación operan con cuentas financiadas, reglas transparentes, pagos en minutos y escalado progresivo. Bullfy combina la agilidad de una fintech con una función bancaria central: poner capital detrás del criterio."
+      },
+      "EasyFi": {
+        "description": "Plataforma descentralizada de provisión de liquidez para AMMs, de forma automática y sin conocimientos técnicos.",
+        "longDescription": "Es una plataforma descentralizada de provisión de liquidez que permite a los usuarios depositar activos en pools optimizados en AMMs como Uniswap V3, de forma automática y sin conocimientos técnicos previos. Los usuarios mantienen el control total de sus fondos en todo momento, mientras el rendimiento proviene exclusivamente de la actividad real del mercado. Su arquitectura sirve tanto a usuarios individuales como a instituciones o socios que necesitan desplegar soluciones de liquidez bajo su propia marca."
+      },
+      "Esignus": {
+        "description": "Plataforma B2B de Hardware Wallet as a Service para bancos, fintechs e exchanges.",
+        "longDescription": "Es una plataforma B2B de Hardware Wallet as a Service que permite a bancos, fintechs e exchanges lanzar su propia solución de autocustodia con marca propia. Su infraestructura integra un chip certificado EAL6+, una app white-label, un sistema de recuperación descentralizado y gestión de herencia digital. Su posición competitiva está respaldada por certificaciones de seguridad bancaria, premios nacionales de ciberseguridad y una base de clientes institucionales ya activa."
+      },
+      "Hashwallet": {
+        "description": "Cartera fría en formato tarjeta que resuelve la contradicción entre seguridad y simplicidad en autocustodia.",
+        "longDescription": "Resuelve la contradicción entre seguridad y simplicidad en la autocustodia de criptoactivos. Es una cartera fría en formato tarjeta con chip EAL6+, firma sin contacto, soporte para más de 11.000 criptomonedas y un sistema de recuperación descentralizado que permite a los usuarios recuperar sus activos sin exponer sus claves privadas. Su firmware es inmutable y su diseño permite gestionar múltiples seeds, programar herencia digital y conectarse a dApps mediante WalletConnect."
+      },
+      "ROV": {
+        "description": "La comunidad líder de realidad virtual y aumentada en el mundo hispanohablante.",
+        "longDescription": "ROV es la comunidad líder de realidad virtual y aumentada en el mundo hispanohablante. Fundada en 2013, reúne noticias, análisis, foro, podcasts y una base de datos para una audiencia que adoptó XR mucho antes de la adopción masiva. Dentro de wowinX, aporta la comunidad nativa del espacio XR donde opera el grupo. Ahora evoluciona hacia un proyecto internacional, manteniendo su profundidad editorial, sus estándares y su compromiso con XR."
+      },
+      "TierraDeCreadores": {
+        "description": "Ecosistema latinoamericano para creadores digitales con formación, comunidad y oportunidades de negocio.",
+        "longDescription": "Es un evento experiencial global diseñado para creadores. Su modelo combina contenido, networking y desarrollo de negocio en un formato físico replicable en diferentes territorios. Puede desplegarse en distintos mercados como plataforma estratégica para conectar creadores, socios y oportunidades dentro de la economía creadora."
+      },
+      "TheArchivesOfSilence": {
+        "description": "Una propiedad intelectual proyectada hacia formatos inmersivos, audiovisuales y transmedia.",
+        "longDescription": "Es una propiedad intelectual nacida de una obra existente y proyectada por wowinX hacia nuevas capas de valor. Su desarrollo abarca formatos inmersivos, audiovisuales y transmedia, con el objetivo de convertir un universo narrativo en una plataforma global de contenido, experiencia y desarrollo comercial."
+      }
+    }
+  },
+  "venture": {
+    "heading": "Invertimos en empresas que construyen el futuro de\nla tecnología, la cultura y la experiencia humana.",
+    "heading_mobile": "Invertimos en empresas que construyen el futuro de la tecnología, la cultura y la experiencia humana."
+  },
+  "joinUs": {
+    "hero": "Algunas personas nacieron para construir lo que viene. Esto es para ellos.",
+    "tabs": {
+      "jobs": {
+        "title": "Empleos",
+        "heading": "Aquí hay espacio para personas extraordinarias.",
+        "description": "En wowinX, construimos con personas que ya saben lo que hacen — y que quieren hacerlo como parte de algo más grande que un solo proyecto.",
+        "button": "Únete"
+      },
+      "students": {
+        "title": "Estudiantes",
+        "heading": "Las mejores carreras comienzan antes de graduarse.",
+        "description": "wowinX abre las puertas de sus empresas a estudiantes que ya piensan como profesionales. Nos importa menos tu historial académico que la forma en que ves el mundo.\n\nLo demás lo resolveremos juntos.",
+        "button": "Únete"
+      },
+      "empresa": {
+        "title": "Empresa",
+        "heading": "Ves oportunidad en lo que estamos construyendo.",
+        "description": "Si tu negocio puede crecer dentro o junto a wowinX, hablemos. La co-creación y la ejecución son nuestro lenguaje común.",
+        "button": "Conéctate con nosotros"
+      },
+      "inversor": {
+        "title": "Inversor",
+        "heading": "Quieres estar ahí desde el principio.",
+        "description": "wowinX construye posición antes de que el mercado alcance. Si compartes esa visión, hay conversaciones que vale la pena tener.",
+        "button": "Explorar"
+      }
+    }
+  },
+  "vision": {
+    "hero": "Construimos lo que viene. Con personas. En digital.",
+    "manifesto": "IGUAL QUE EL RENACIMIENTO MEZCLÓ ARTE, CIENCIA Y COMERCIO PARA ABRIR UN MUNDO NUEVO — WOWINX MEZCLA CULTURA, TECNOLOGÍA Y NEGOCIO PARA CONSTRUIR EL SIGUIENTE",
+    "flowit": "FLOWIT",
+    "ourVision": "Nuestra visión",
+    "accordion": [
+      {
+        "number": "/01",
+        "title": "El momento en que todo converge",
+        "text": "Deporte, entretenimiento, cultura, negocio y digital se fusionan en un solo espacio de experiencia humana — explorando infinitas, nuevas vistas en esta esfera. La identidad entre casi el mercado y construyó posición desde el origen."
+      },
+      {
+        "number": "/02",
+        "title": "Donde otros ven sectores, wowinx ve conexiones",
+        "text": "Construir otros tres sectores, impactar en la comunicación."
+      },
+      {
+        "number": "/03",
+        "title": "Una economía más inteligente, más inmersiva y más humana.",
+        "text": "Ese es el mundo que wowinx está construyendo. Empresas con valor económico y con valores humanos, porque ambos crecen cuando juntas. El digital es el territorio. Las personas, la razón de todo."
+      }
+    ]
+  },
+  "story": {
+    "hero": "Lo digital es el territorio.\nLas personas son la razón de todo.",
+    "intro": "Siempre ha habido personas que eligen construir su vida en lugar de dejar que la vida les pase. Personas que eligen el camino antes de que exista. Personas que se comprometen con lo que todavía no tiene nombre — y siguen adelante mientras el mundo aún no entiende por qué.",
+    "paragraphs": [
+      "wowinX nació de esa decisión. De la convicción de que el mundo digital estaba a punto de transformarse por completo — y que quienes llegaran antes, con visión y las personas adecuadas, definirían las reglas. Desde 2009, hemos estado construyendo en ese territorio. Aprendiendo los problemas antes de que el mercado supiera que existían. Acumulando el tipo de conocimiento que solo surge llegando primero.",
+      "Hoy somos un ecosistema de empresas que opera en los espacios donde la vida humana digital ocurre: el deporte y la competición, el entretenimiento y la cultura, la música y la creación, las nuevas economías y los activos digitales, la formación, la comunidad, la identidad y la seguridad.",
+      "Una creencia atraviesa todo lo que construimos: la tecnología es el mayor superpoder que hemos creado. Las personas, la razón de todo.",
+      "XR, inteligencia artificial y Web3 son las herramientas. Lo que importa es lo que ocurre cuando esas herramientas amplían lo humano, cuando el deporte llega a cualquier lugar del mundo, cuando el conocimiento de un ídolo se vuelve accesible, cuando la música recupera su verdad, cuando cualquier persona puede competir, crear y conectar sin límites geográficos ni barreras económicas.",
+      "Eso es wowinX, un ecosistema construido por personas que decidieron transitar nuevos caminos y que siguen construyendo."
+    ]
+  },
+  "footer": {
+    "rights": "2026. Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "legal": "Aviso legal"
+  }
+}

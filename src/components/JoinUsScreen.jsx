@@ -3,57 +3,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar';
 import MarqueeSection from '../components/MarqueeSection';
 import Footer from '../components/Footer';
 
 /* =========================================================
-   DATA
+   STATIC TAB CONFIG (non-translated fields only)
 ========================================================= */
 
-const tabs = [
-  {
-    id: 'jobs',
-    title: 'Jobs',
-    headingColor: '#E3E3E3',
-    heading: `There's room here for extraordinary people.`,
-    description: `At wowinX, we build with people who already know what they're doing — and who want to do it as part of something bigger than a single project.`,
-    button: 'Join Us',
-    buttonAction: 'contact',
-    image: '/images/JoinUs1.png',
-  },
-  {
-    id: 'students',
-    title: 'Students',
-    headingColor: '#FFF',
-    heading: `The best careers begin before graduation.`,
-    description: `wowinX opens the doors of its companies to students who already think like professionals. We care less about your academic record than about the way you see the world.\n\nWe'll figure out the rest together.`,
-    button: 'Join Us',
-    buttonAction: 'contact',
-    image: '/images/JoinUs3.png',
-    // NOTE: headingColor #FFF — no red, no "Pending"
-  },
-  {
-    id: 'empresa',
-    title: 'Empresa',
-    headingColor: '#E3E3E3',
-    heading: `You see opportunity in what we're building.`,
-    description: `If your business can grow within or alongside wowinX, let's talk. Co-creation and execution are our common language.`,
-    button: 'Connect with us',
-    buttonAction: null,
-    image: '/images/JoinUs3.png',
-  },
-  {
-    id: 'inversor',
-    title: 'Inversor',
-    headingColor: '#FFF',
-    heading: `You want to be there from the start.`,
-    description: `wowinX builds position before the market catches up. If you share that vision, there are conversations worth having.`,
-    button: 'Explore',
-    buttonAction: null,
-    image: '/images/JoinUs5.png',
-  },
+const TAB_CONFIG = [
+  { id: 'jobs',     headingColor: '#E3E3E3', buttonAction: 'contact', image: '/images/JoinUs1.png' },
+  { id: 'students', headingColor: '#FFF',    buttonAction: 'contact', image: '/images/JoinUs3.png' },
+  { id: 'empresa',  headingColor: '#E3E3E3', buttonAction: null,      image: '/images/JoinUs3.png' },
+  { id: 'inversor', headingColor: '#FFF',    buttonAction: null,      image: '/images/JoinUs5.png' },
 ];
 
 /* =========================================================
@@ -89,8 +53,18 @@ const gradientText = {
 ========================================================= */
 
 export default function JoinUsPage({ currentPage, setCurrentPage }) {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('jobs');
   const [hoveredTab, setHoveredTab] = useState(null);
+
+  const tabs = TAB_CONFIG.map((cfg) => ({
+    ...cfg,
+    title: t(`joinUs.tabs.${cfg.id}.title`),
+    heading: t(`joinUs.tabs.${cfg.id}.heading`),
+    description: t(`joinUs.tabs.${cfg.id}.description`),
+    button: t(`joinUs.tabs.${cfg.id}.button`),
+  }));
+
   const activeContent = tabs.find((tab) => tab.id === activeTab);
 
   return (
@@ -128,7 +102,7 @@ export default function JoinUsPage({ currentPage, setCurrentPage }) {
               overflow: 'hidden',
             }}
           >
-            Some people were born to build what comes next. This is for them.
+            {t('joinUs.hero')}
           </motion.h1>
         </div>
       </section>

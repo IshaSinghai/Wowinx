@@ -2,10 +2,12 @@ import { useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function EcosystemSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const textRef = useRef(null);
@@ -74,20 +76,12 @@ export default function EcosystemSection() {
 
         {/* Right: Text */}
         <div ref={textRef}>
-          <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]">
-            Each company in the
-            <br />
-            ecosystem opens
-            <br />
-            doors to the next
-            <br />
-            ones.
+          <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]" style={{ whiteSpace: 'pre-line' }}>
+            {t('ecosystem.title')}
           </h2>
 
           <p className="text-body-lg text-text-secondary max-w-[480px] mb-8 leading-relaxed">
-            If you see a business opportunity in what we are
-            building, let's talk. Here, execution is the common
-            language.
+            {t('ecosystem.description')}
           </p>
 
           <a
@@ -95,7 +89,7 @@ export default function EcosystemSection() {
             className="btn-outline group"
             id="btn-talk"
           >
-            Let's talk
+            {t('ecosystem.cta')}
             <ArrowUpRight
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

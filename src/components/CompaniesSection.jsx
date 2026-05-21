@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { X, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import MarqueeSection from "./MarqueeSection";
 import Footer from "./Footer";
 
@@ -25,229 +26,41 @@ const CATEGORY_WIDTHS = {
   Culture: "87px",
 };
 
+// Category key → translation key
+const CATEGORY_KEYS = {
+  All: "companies.categories.all",
+  Infrastructure: "companies.categories.infrastructure",
+  Tech: "companies.categories.tech",
+  Sports: "companies.categories.sports",
+  Entertainment: "companies.categories.entertainment",
+  Money: "companies.categories.money",
+  Culture: "companies.categories.culture",
+};
+
 const COMPANIES = [
-  {
-    name: "Prisma XR",
-    logoKey: "prismaXr",
-    category: "Infrastructure",
-    description:
-      "Estudio de desarrollo XR especializado en llevar el movimiento físico humano a entornos digitales en tiempo real.",
-    longDescription: [
-      "More than a decade solving one of XR's most complex challenges: turning human physical movement into a precise, fluid, and scalable digital interface. Its expertise in latency, body synchronization, movement logic, and immersive architecture enables it to create environments where the body acts in real time within digital space. In 2026, as XR moves toward mass adoption, PrismaXR operates from a position of advantage built long before the market understood its value.",
-    ],
-  },
-  {
-    name: "WIA+",
-    logoKey: "WIA+",
-    category: "Infrastructure",
-    description:
-      "Infraestructura de modelos de IA propietarios para entornos regulados y productos inmersivos.",
-    longDescription: [
-      "wowinX's artificial intelligence factory. WIA designs, trains, and deploys the group's AI infrastructure with sovereign control, bringing traceability, control, and operational autonomy to demanding environments. Its specialization combines deterministic LLMs for regulated sectors with generative LLMs for products where creativity and expression are central. From this foundation, wowinX builds the deepest layer of its AI stack.",
-    ],
-  },
-  {
-    name: "Aethern",
-    logoKey: "Aethern",
-    category: "Money",
-    description:
-      "Infraestructura blockchain diseñada para banca, mercados de capitales e instituciones financieras.",
-    longDescription: [
-      "It builds specialized blockchain infrastructure for the financial sector. It designs every layer of the on-chain stack — consensus, execution, settlement, identity, and compliance — to meet the real demands of banks, asset managers, and institutional issuers. Its vertical focus, combined with proven experience developing for major financial clients, places Aethern among the few companies capable of uniting protocol architecture with institutional risk logic..",
-    ],
-  },
-  {
-    name: "Trivium",
-    logoKey: "Trivium",
-    category: "Infrastructure",
-    description:
-      "Ingeniería full stack transversal que sustenta la arquitectura técnica del ecosistema.",
-    longDescription: [
-      "It is wowinX's full-stack company and the technical layer underpinning the rest of the group. It builds and maintains the cross-functional infrastructure that allows each company to focus on its product, backed by a robust, interoperable, and scalable foundation. Its work spans backup systems, integrations, bridges between architectures, and technical coherence across different environments. Trivium turns an ecosystem of companies into a solid, connected technological architecture.",
-    ],
-  },
-  {
-    name: "BefootBall",
-    logoKey: "BeFootBall",
-    category: "Tech",
-    description:
-      "Plataforma de desarrollo de software colaborativo impulsada por inteligencia artificial generativa.",
-    longDescription: [
-      "It builds, through VR, the immersive layer of the world's most universal sport: an ecosystem where fans, clubs, leagues, federations, and brands turn football into participation, movement, community, and business. Its strength comes from the intersection of major technology companies, global demand for football, and new generations who already consume, socialize, and compete in interactive environments. BeFootball brings official content, sporting legitimacy, and real activation.",
-    ],
-  },
-  {
-    name: "VirtualSports",
-    logoKey: "VirtualSports",
-    category: "Tech",
-    description:
-      "Sistema operativo espacial para entornos mixtos que conecta dispositivos físicos y digitales.",
-    longDescription: [
-      "It creates a new sports category in virtual reality, with its own rules, real physical movement, and structured competition. It turns digital experience into physical presence, effort, and shared play. Its scale runs from the home to physical arenas, opening up a new space for leagues, events, and championships for a generation shaped by interactive environment.",
-    ],
-  },
-  {
-    name: "BeSportsAcademy",
-    logoKey: "BeSportsAcademy",
-    category: "Money",
-    description:
-      "Motor de análisis financiero en tiempo real para fondos de inversión y family offices.",
-    longDescription: [
-      "It brings elite knowledge to any player through virtual reality. It turns sports training into an immersive, guided, repeatable, and measurable experience, accessible from anywhere. Its focus is on developing sports intelligence: decision-making under pressure, anticipation, tactical reading, body orientation, and spatial perception. BeSports Academy transforms a virtual reality headset into the gateway to a new scale of training.",
-    ],
-  },
-  {
-    name: "AldolsX",
-    logoKey: "AldolsX",
-    category: "Entertainment",
-    description:
-      "Estudio de contenido inmersivo que produce experiencias narrativas en formatos XR y volumétricos.",
-    longDescription: [
-      "It turns one of entertainment’s greatest limitations into a product: the distance between an idol and their audience. It builds official digital twins, trained on the idol’s voice, sensibility, image, and narrative universe. In this way, the idol’s identity becomes a conversational, immersive, and value-generating presence capable of generating recurring business and preserving their cultural legacy over the long term. "
-],
-  },
-  {
-    name: "Stratos",
-    logoKey: "Stratos",
-    category: "Infrastructure",
-    description:
-      "Red de cómputo distribuido de baja latencia orientada a cargas de trabajo de IA en el edge.",
-    longDescription: [
-      "Stratos opera una red de nodos de cómputo distribuidos para llevar la inferencia de IA al borde de la red.",
-    ],
-  },
-  {
-    name: "IMM3RSIVE",
-    logoKey: "IMM3RSIVE",
-    category: "Sports",
-    description:
-      "Plataforma de analítica deportiva avanzada que combina visión computacional y biomecánica.",
-    longDescription: [
-" IMM3RSIVE is wowinX’s XR project and the infrastructure the new immersive industry needs to operate. It builds IMM Units — the standard unit of immersive consumption for measuring, budgeting, and settling XR experiences at scale. Its $IMM token operates as the invisible rail powering that economy, while wowinX validates the standard through real demand from BeFootball and VirtualSports before opening it to the industry. "    ],
-  },
-  {
-    name: "WX180Productions",
-    logoKey: "WX180Productions",
-    category: "Sports",
-    description:
-      "Ecosistema digital para ligas y competencias amateur con gestión de torneos y fans.",
-    longDescription: [
-"It produces immersive experiences for high-value sectors and clients across institutions, sport, luxury, and hospitality. It operates as a boutique studio — few projects per year, maximum quality. It turns communication into experience through a simple idea: presence turns interest into decision. "
-    ],
-  },
-  {
-    name: "True'sMusic",
-    logoKey: "True'sMusic",
-    category: "Money",
-    description:
-      "Soluciones de pagos transfronterizos instantáneos para pymes en mercados emergentes.",
-    longDescription: [
-"It is the neutral oracle of music streaming: a certification layer that turns every stream into verifiable, traceable, and auditable proof of value. That certified data brings greater confidence to today’s streaming economy and creates the foundation needed to bring music into Web3, from catalog tokenization to blockchain royalties and artist financing through digital assets. "
-    ],
-  },
-  {
-    name: "GROWFY",
-    logoKey: "GROWFY",
-    category: "Tech",
-    description:
-      "Plataforma de crecimiento empresarial impulsada por datos e inteligencia artificial.",
-    longDescription: [
-"It is a platform designed to create, scale, and monetize digital communities around education, knowledge, and digital products. It brings courses, memberships, community, events, and participation tools into a single environment, turning learning into a continuous experience. Its value lies in transforming content and programs into living ecosystems, increasing retention, repeat engagement, and the strength of the relationship between creators and users."    ],
-  },
-  {
-    name: "KeyQuest",
-    logoKey: "KeyQuest",
-    category: "Tech",
-    description:
-      "Soluciones de acceso y gestión de credenciales digitales para entornos empresariales seguros.",
-    longDescription: [
-"It solves the lack of consolidated data in the VR/AR application market. It unifies analytics, keyword and competitor tracking, revenue estimation, category trends, and AI-generated reports in a single dashboard designed for the immersive ecosystem. Its position within wowinX allows it to draw on real data from live applications and reach the market just as VR/AR starts needing sharper intelligence to grow. "    ],
-  },
-  {
-    name: "Ownia",
-    logoKey: "Ownia",
-    category: "Money",
-    description:
-      "Plataforma de inversión en activos reales tokenizados para inversores individuales e institucionales.",
-    longDescription: [
-"It is a private artificial intelligence platform for companies that turns corporate knowledge into a conversation. It accesses each division’s internal documentation, answers with cited sources, and remembers each user’s context across sessions. It writes reports, summarizes documents, compares texts, generates files, transcribes audio, and connects to code repositories through a conversational interface. Its multi-instance SaaS model allows each organization to operate in an isolated environment, with its own knowledge, branding, and control."
-    ],
-  },
-  {
-    name: "Seetrex",
-    logoKey: "Seetrex",
-    category: "Infrastructure",
-    description:
-      "Sistema de trazabilidad y monitoreo en tiempo real para cadenas de suministro globales.",
-    longDescription: [
-"It is a deterministic AI system designed for regulated environments, where every decision must be explainable, reproducible, and auditable. It produces the same output for the same input, with full traceability and third-party verification. That capability makes it the bridge between modern artificial intelligence and legacy systems in banking, finance, and regulatory processes — and the layer that validates every critical decision within wowinX’s architecture. "    ],
-  },
-  {
-    name: "Bulfy",
-    logoKey: "Bullfy",
-    category: "Culture",
-    description:
-      "Red social orientada a comunidades de creadores con herramientas de monetización directa.",
-    longDescription: [
-"It is a proprietary trading firm powered by communities, giving talented traders access to real capital through a simple, fast, and transparent experience. Those who pass its evaluation trade with funded accounts, transparent rules, payouts in minutes, and progressive scaling. Bullfy combines the agility of a fintech with a core banking function: putting capital behind judgment."    ],
-  },
-  {
-    name: "EasyFi",
-    logoKey: "EasyFi",
-    category: "Money",
-    description:
-      "Infraestructura de finanzas descentralizadas pensada para usuarios no técnicos en mercados emergentes.",
-    longDescription: [
-"It is a decentralized liquidity provision platform that allows users to deposit assets into optimized pools on AMMs such as Uniswap V3, automatically and without prior technical knowledge. Users maintain full control of their funds at all times, while yield comes exclusively from real market activity. Its architecture serves both individual users and institutions or partners that need to deploy liquidity solutions under their own brand. "    ],
-  },
-  {
-    name: "eSignus",
-    logoKey: "Esignus",
-    category: "Infrastructure",
-    description:
-      "Hardware y software de firma digital avanzada para documentos legales y contratos empresariales.",
-    longDescription: [
-"It is a B2B Hardware Wallet as a Service platform that allows banks, fintechs, and exchanges to launch their own branded self-custody solution. Its infrastructure integrates an EAL6+ certified chip, a white-label app, a decentralized recovery system, and digital inheritance management. Its competitive position is supported by bank-grade security certifications, national cybersecurity awards, and an already active institutional client base. "
-    ],
-  },
-  {
-    name: "HashWallet",
-    logoKey: "Hashwallet",
-    category: "Money",
-    description:
-      "Cartera de activos digitales con custodia auto-soberana y soporte multi-cadena.",
-    longDescription: [
-"It solves the contradiction between security and simplicity in cryptoasset self-custody. It is a card-format cold wallet with an EAL6+ chip, contactless signing, support for more than 11,000 cryptocurrencies, and a decentralized recovery system that allows users to recover their assets without exposing their private keys. Its firmware is immutable, and its design enables users to manage multiple seeds, program digital inheritance, and connect to dApps via WalletConnect. "    ],
-  },
-  {
-    name: "ROV",
-    logoKey: "ROV",
-    category: "Entertainment",
-    description:
-      "Estudio de videojuegos inmersivos con narrativas interactivas para plataformas XR y móvil.",
-    longDescription: [
-"ROV is the leading virtual and augmented reality community in the Spanish-speaking world. Founded in 2013, it brings together news, analysis, a forum, podcasts, and a database for an audience that embraced XR long before mass adoption. Within wowinX, it brings the native community of the XR space where the group operates. It is now evolving into an international project, while maintaining its editorial depth, standards, and commitment to XR."    ],
-  },
-  {
-    name: "Tierra de Creadores",
-    logoKey: "TierraDeCreadores",
-    category: "Culture",
-    description:
-      "Ecosistema latinoamericano para creadores digitales con formación, comunidad y oportunidades de negocio.",
-    longDescription: [
-"It is a global experiential event designed for creators. Its model combines content, networking, and business development in a physical format that can be replicated across different territories. It can be deployed in different markets as a strategic platform to connect creators, partners, and opportunities within the creator economy. "    ],
-  },
-  {
-    name: "The Archives of Silence",
-    logoKey: "TheArchivesOfSilence",
-    category: "Culture",
-    description:
-      "Archivo digital de patrimonio sonoro e historias orales de comunidades en riesgo de olvido.",
-    longDescription: [
-"It is an intellectual property born from an existing work and projected by wowinX into new layers of value. Its development spans immersive, audiovisual, and transmedia formats, with the goal of turning a narrative universe into a global platform for content, experience, and commercial development."
-    ],
-  },
- 
+  { name: "Prisma XR",              logoKey: "prismaXr",           category: "Infrastructure" },
+  { name: "WIA+",                   logoKey: "WIA+",               category: "Infrastructure" },
+  { name: "Aethern",                logoKey: "Aethern",            category: "Money" },
+  { name: "Trivium",                logoKey: "Trivium",            category: "Infrastructure" },
+  { name: "BefootBall",             logoKey: "BeFootBall",         category: "Tech" },
+  { name: "VirtualSports",          logoKey: "VirtualSports",      category: "Tech" },
+  { name: "BeSportsAcademy",        logoKey: "BeSportsAcademy",    category: "Money" },
+  { name: "AldolsX",               logoKey: "AldolsX",            category: "Entertainment" },
+  { name: "Stratos",                logoKey: "Stratos",            category: "Infrastructure" },
+  { name: "IMM3RSIVE",              logoKey: "IMM3RSIVE",          category: "Sports" },
+  { name: "WX180Productions",       logoKey: "WX180Productions",   category: "Sports" },
+  { name: "True’sMusic",            logoKey: "True’sMusic",        category: "Money" },
+  { name: "GROWFY",                 logoKey: "GROWFY",             category: "Tech" },
+  { name: "KeyQuest",               logoKey: "KeyQuest",           category: "Tech" },
+  { name: "Ownia",                  logoKey: "Ownia",              category: "Money" },
+  { name: "Seetrex",                logoKey: "Seetrex",            category: "Infrastructure" },
+  { name: "Bulfy",                  logoKey: "Bullfy",             category: "Culture" },
+  { name: "EasyFi",                 logoKey: "EasyFi",             category: "Money" },
+  { name: "eSignus",                logoKey: "Esignus",            category: "Infrastructure" },
+  { name: "HashWallet",             logoKey: "Hashwallet",         category: "Money" },
+  { name: "ROV",                    logoKey: "ROV",                category: "Entertainment" },
+  { name: "Tierra de Creadores",    logoKey: "TierraDeCreadores",  category: "Culture" },
+  { name: "The Archives of Silence",logoKey: "TheArchivesOfSilence",category: "Culture" },
 ];
 
 function gradientButtonStyle(active = false) {
@@ -269,7 +82,7 @@ function gradientButtonStyle(active = false) {
       };
 }
 
-function FilterPill({ cat, isActive, onClick }) {
+function FilterPill({ cat, label, isActive, onClick }) {
   return (
     <button
       onClick={onClick}
@@ -292,12 +105,13 @@ function FilterPill({ cat, isActive, onClick }) {
         ...gradientButtonStyle(isActive),
       }}
     >
-      {cat}
+      {label}
     </button>
   );
 }
 
 export function CompaniesSection() {
+  const { t } = useTranslation();
   const [active, setActive] = useState("All");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -332,15 +146,15 @@ export function CompaniesSection() {
           {/* HEADING */}
           <h2 className="companies-heading">
             <span className="desktop-heading">
-              Discover the ecosystem behind wownix.
-              <br />
-              From infrastructure to culture.
+              {t('companies.heading').split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </span>
 
             <span className="mobile-heading">
-              Discover the ecosystem behind wownix.
-              <br />
-              From infrastructure to culture.
+              {t('companies.heading').split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </span>
           </h2>
 
@@ -362,6 +176,7 @@ export function CompaniesSection() {
                 <FilterPill
                   key={cat}
                   cat={cat}
+                  label={t(CATEGORY_KEYS[cat])}
                   isActive={active === cat}
                   onClick={() => setActive(cat)}
                 />
@@ -388,7 +203,7 @@ export function CompaniesSection() {
                   background: "rgba(255,255,255,0.04)",
                 }}
               >
-                <span>{active}</span>
+                <span>{t(CATEGORY_KEYS[active])}</span>
                 <ChevronDown
                   size={16}
                   className={"transition-transform " + (mobileOpen ? "rotate-180" : "")}
@@ -428,7 +243,7 @@ export function CompaniesSection() {
                         fontFamily: "Inter, sans-serif",
                       }}
                     >
-                      {cat}
+                      {t(CATEGORY_KEYS[cat])}
                     </button>
                   ))}
                 </div>
@@ -518,7 +333,7 @@ export function CompaniesSection() {
                       opacity: 0.55,
                     }}
                   >
-                    {company.description}
+                    {t(`companies.data.${company.logoKey}.description`)}
                   </p>
                 </div>
               </button>
@@ -591,7 +406,7 @@ export function CompaniesSection() {
                     flexShrink: 0,
                   }}
                 >
-                  {selected.category}
+                  {t(CATEGORY_KEYS[selected.category])}
                 </span>
 
                 {/* Vertical divider */}
@@ -704,7 +519,7 @@ export function CompaniesSection() {
                       width: "464px",
                     }}
                   >
-                    {selected.longDescription[0]}
+                    {t(`companies.data.${selected.logoKey}.longDescription`)}
                   </p>
 
                   <button
@@ -727,7 +542,7 @@ export function CompaniesSection() {
                     onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(248,248,248,0.8)"; }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(248,248,248,0.30)"; }}
                   >
-                    Let's Talk
+                    {t('companies.letsTalk')}
                     <span style={{ fontSize: "13px" }}>↗</span>
                   </button>
                 </div>
