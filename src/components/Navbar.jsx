@@ -1,67 +1,65 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-import {
-  ChevronDown,
-  Globe,
-  ArrowUpRight,
-  Menu,
-  X,
-} from 'lucide-react';
+import { ChevronDown, Globe, ArrowUpRight, Menu, X } from "lucide-react";
 
 const navDropdownImages = {
-  home: '/images/HomepageWomen.png',
-  story: '/images/VR.png',
-  vision: '/images/Women.png',
+  home: "/images/HomepageWomen.png",
+  story: "/images/VR.png",
+  vision: "/images/Women.png",
 };
 
 const mobileDropdownImages = [
-  navDropdownImages['home'],
-  navDropdownImages['story'],
-  navDropdownImages['vision'],
+  navDropdownImages["home"],
+  navDropdownImages["story"],
+  navDropdownImages["vision"],
 ];
 
 const labelStyle = {
-  fontSize: '13px',
-  color: '#E7E7EA',
-  fontFamily: 'Inter, sans-serif',
-  marginBottom: '8px',
-  display: 'block',
+  fontSize: "13px",
+  color: "#E7E7EA",
+  fontFamily: "Inter, sans-serif",
+  marginBottom: "8px",
+  display: "block",
 };
 
-export default function Navbar({
-  currentPage,
-  setCurrentPage,
-}) {
+export default function Navbar({ currentPage, setCurrentPage }) {
   const { t, i18n } = useTranslation();
 
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
-  const [activeDropdownItem, setActiveDropdownItem] = useState('home');
+  const [activeDropdownItem, setActiveDropdownItem] = useState("home");
 
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    whoAmI: '',
-    email: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    whoAmI: "",
+    email: "",
+    message: "",
   });
 
   const navLinks = [
-    { id: 'companies', label: t('navbar.links.companies'), href: '#companies' },
-    { id: 'ventures', label: t('navbar.links.ventures'), href: '#VentureScreen' },
-    { id: 'joinUs', label: t('navbar.links.joinUs'), href: '#JoinUsScreen' },
+    { id: "companies", label: t("navbar.links.companies"), href: "#companies" },
+    {
+      id: "ventures",
+      label: t("navbar.links.ventures"),
+      href: "#VentureScreen",
+    },
+    { id: "joinUs", label: t("navbar.links.joinUs"), href: "#JoinUsScreen" },
   ];
 
   const navDropdown = [
-    { id: 'home', label: t('navbar.dropdown.home'), href: '#hero' },
-    { id: 'story', label: t('navbar.dropdown.story'), href: '#story' },
-    { id: 'vision', label: t('navbar.dropdown.vision'), href: '#OurVisionPage' },
+    { id: "home", label: t("navbar.dropdown.home"), href: "#hero" },
+    { id: "story", label: t("navbar.dropdown.story"), href: "#story" },
+    {
+      id: "vision",
+      label: t("navbar.dropdown.vision"),
+      href: "#OurVisionPage",
+    },
   ];
 
   const handleChange = (e) => {
@@ -78,84 +76,72 @@ export default function Navbar({
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      setIsScrolled(scrollY > 50);
-      setIsPastHero(scrollY > window.innerHeight * 0.8);
+      setIsPastHero(window.scrollY > window.innerHeight * 0.8);
     };
 
-    window.addEventListener('scroll', handleScroll, {
+    window.addEventListener("scroll", handleScroll, {
       passive: true,
     });
 
-    return () =>
-      window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close lang dropdown on outside click
   useEffect(() => {
     if (!isLangDropdownOpen) return;
     const close = () => setIsLangDropdownOpen(false);
-    window.addEventListener('click', close);
-    return () => window.removeEventListener('click', close);
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
   }, [isLangDropdownOpen]);
 
-  const navBackgroundClass = isScrolled
-    ? isPastHero
-      ? 'bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/30'
-      : 'bg-white/10 backdrop-blur-xl border border-white/10'
-    : isPastHero
-    ? 'bg-[#2b2b2b]/[0.20] backdrop-blur-sm border border-white/10'
-    : 'bg-[#0e0e0e]/40 backdrop-blur-xl border border-white/10';
+  const navBackgroundClass = isPastHero
+    ? "bg-[#2b2b2b]/[0.20] backdrop-blur-sm border border-white/10"
+    : "bg-[#0e0e0e]/40 backdrop-blur-xl border border-white/10";
 
-  const dropdownBgStyle = isScrolled
-    ? isPastHero
-      ? { backgroundColor: 'rgba(0,0,0,0.85)' }
-      : { backgroundColor: 'rgba(255,255,255,0.12)' }
-    : isPastHero
-    ? { backgroundColor: 'rgba(43,43,43,0.75)' }
-    : { backgroundColor: 'rgba(14,14,14,0.85)' };
+  const dropdownBgStyle = isPastHero
+    ? { backgroundColor: "rgba(43,43,43,0.75)" }
+    : { backgroundColor: "rgba(14,14,14,0.85)" };
 
   const handleNavClick = (link) => {
-    if (link.id === 'companies') {
-      setCurrentPage('companies');
+    if (link.id === "companies") {
+      setCurrentPage("companies");
       setIsMobileOpen(false);
-      window.history.replaceState(null, '', '#companies');
+      window.history.replaceState(null, "", "#companies");
       window.scrollTo(0, 0);
       return;
     }
 
-    if (link.id === 'ventures') {
-      setCurrentPage('VentureScreen');
+    if (link.id === "ventures") {
+      setCurrentPage("VentureScreen");
       setIsMobileOpen(false);
-      window.history.replaceState(null, '', '#VentureScreen');
+      window.history.replaceState(null, "", "#VentureScreen");
       window.scrollTo(0, 0);
       return;
     }
 
-    if (link.id === 'joinUs') {
-      setCurrentPage('joinUs');
+    if (link.id === "joinUs") {
+      setCurrentPage("joinUs");
       setIsMobileOpen(false);
       setIsDropdownOpen(false);
-      window.history.replaceState(null, '', '#JoinUsScreen');
+      window.history.replaceState(null, "", "#JoinUsScreen");
 
       setTimeout(() => {
-        document.querySelector('#JoinUsScreen')?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
+        document.querySelector("#JoinUsScreen")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }, 60);
 
       return;
     }
 
-    if (link.href && link.href.startsWith('#')) {
-      setCurrentPage('home');
-      window.history.replaceState(null, '', link.href);
+    if (link.href && link.href.startsWith("#")) {
+      setCurrentPage("home");
+      window.history.replaceState(null, "", link.href);
 
       setTimeout(() => {
         document.querySelector(link.href)?.scrollIntoView({
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }, 60);
 
@@ -163,7 +149,7 @@ export default function Navbar({
       return;
     }
 
-    window.history.replaceState(null, '', link.href || '');
+    window.history.replaceState(null, "", link.href || "");
     setIsMobileOpen(false);
   };
 
@@ -174,26 +160,26 @@ export default function Navbar({
     setIsDropdownOpen(false);
     setIsMobileOpen(false);
 
-    if (item.id === 'vision') {
-      setCurrentPage('OurVisionPage');
-      window.history.replaceState(null, '', '#OurVisionPage');
+    if (item.id === "vision") {
+      setCurrentPage("OurVisionPage");
+      window.history.replaceState(null, "", "#OurVisionPage");
       window.scrollTo(0, 0);
       return;
     }
 
-    if (item.id === 'story') {
-      setCurrentPage('story');
-      window.history.replaceState(null, '', '#story');
+    if (item.id === "story") {
+      setCurrentPage("story");
+      window.history.replaceState(null, "", "#story");
       window.scrollTo(0, 0);
       return;
     }
 
-    setCurrentPage('home');
-    window.history.replaceState(null, '', item.href);
+    setCurrentPage("home");
+    window.history.replaceState(null, "", item.href);
 
     setTimeout(() => {
       document.querySelector(item.href)?.scrollIntoView({
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }, 60);
   };
@@ -215,68 +201,65 @@ export default function Navbar({
           ease: [0.22, 1, 0.36, 1],
           delay: 0.3,
         }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'py-2 px-3 md:px-6'
-            : 'py-4 px-4 md:px-8'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-8"
       >
         <div
           className={`relative mx-auto max-w-[1500px] flex items-center justify-between rounded-[10px] px-5 md:px-7 py-3 transition-all duration-500 ${navBackgroundClass}`}
         >
-          {/* Logo */}
-          <div className="flex items-center">
-            <button
-              onClick={() => {
-                setIsMobileOpen(false);
-                setIsDropdownOpen(!isDropdownOpen);
-              }}
-              className="flex items-center gap-2 text-white hover:opacity-80 transition-all duration-300"
-            >
-              <img
-                src="/images/wowinx.png"
-                alt="wowinx"
-                className="h-6 w-auto object-contain"
-              />
+          <div className="flex items-center gap-10">
+            {/* Logo */}
+            <div className="flex items-center">
+              <button
+                onClick={() => {
+                  setIsMobileOpen(false);
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="flex items-center gap-2 text-white hover:opacity-80 transition-all duration-300"
+              >
+                <img
+                  src="/images/wowinx.png"
+                  alt="wowinx"
+                  className="h-6 w-auto object-contain"
+                />
 
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-300 ${
-                  isDropdownOpen ? 'rotate-180' : ''
-                }`}
-              />
-            </button>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-300 ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
 
-            {/* Dropdown */}
-            <AnimatePresence>
-              {isDropdownOpen && (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 10,
-                    scale: 0.96,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 10,
-                    scale: 0.96,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                  }}
-                  style={{
-                    ...dropdownBgStyle,
-                    backdropFilter: 'blur(24px)',
-                    WebkitBackdropFilter: 'blur(24px)',
-                  }}
-                  className="
+              {/* Dropdown */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: 10,
+                      scale: 0.96,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 10,
+                      scale: 0.96,
+                    }}
+                    transition={{
+                      duration: 0.2,
+                    }}
+                    style={{
+                      ...dropdownBgStyle,
+                      backdropFilter: "blur(24px)",
+                      WebkitBackdropFilter: "blur(24px)",
+                    }}
+                    className="
                     absolute top-full left-0 mt-4 md:mt-5
-                    w-[95vw] sm:w-[520px] md:w-[620px]
+                    w-[91vw] sm:w-[520px] md:w-[620px]
                     max-w-[95vw] md:max-w-none
                     rounded-[4px] md:rounded-[12px]
                     overflow-hidden
@@ -284,127 +267,118 @@ export default function Navbar({
                     shadow-2xl shadow-black/40
                     text-white isolate
                   "
-                >
-                  {/* Mobile */}
-                  <div className="md:hidden px-3 pt-12 pb-8">
-                    <div className="flex flex-col gap-5">
-                      {navDropdown.map((item) => (
-                        <a
-                          key={item.id}
-                          href={item.href}
-                          onClick={(e) =>
-                            handleDropdownClick(e, item)
-                          }
-                          className="text-white text-[26px] leading-[28px] font-normal no-underline"
-                          style={{
-                            fontFamily:
-                              'PP Neue Montreal, sans-serif',
-                          }}
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-
-                    <div className="mt-[72px] flex w-full max-w-[340px] gap-2">
-                      {mobileDropdownImages.map((src, index) => (
-                        <img
-                          key={src}
-                          src={src}
-                          alt={`Dropdown preview ${index + 1}`}
-                          className="w-[100px] h-[224px] object-cover rounded-[4px] block"
-                          style={{
-                            objectPosition:
-                              index === 2
-                                ? 'left center'
-                                : 'center center',
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Desktop */}
-                  <div className="hidden md:grid grid-cols-[190px_1fr] gap-5 p-5">
-                    <div className="flex flex-col gap-2">
-                      {navDropdown.map((item) => {
-                        const isActive =
-                          activeDropdownItem === item.id;
-
-                        return (
+                  >
+                    {/* Mobile */}
+                    <div className="md:hidden px-3 pt-20 pb-12">
+                      <div className="flex flex-col gap-5">
+                        {navDropdown.map((item) => (
                           <a
                             key={item.id}
                             href={item.href}
-                            onClick={(e) =>
-                              handleDropdownClick(e, item)
-                            }
-                            onMouseEnter={() =>
-                              setActiveDropdownItem(item.id)
-                            }
-                            className={`
+                            onClick={(e) => handleDropdownClick(e, item)}
+                            className="text-white text-[26px] leading-[28px] font-normal no-underline"
+                            style={{
+                              fontFamily: "PP Neue Montreal, sans-serif",
+                            }}
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+
+                      <div className="mt-[72px] flex w-full max-w-[340px] gap-2">
+                        {mobileDropdownImages.map((src, index) => (
+                          <img
+                            key={src}
+                            src={src}
+                            alt={`Dropdown preview ${index + 1}`}
+                            className="w-[100px] h-[224px] object-cover rounded-[4px] block"
+                            style={{
+                              objectPosition:
+                                index === 2 ? "left center" : "center center",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Desktop */}
+                    <div className="hidden md:grid grid-cols-[190px_1fr] gap-5 p-5">
+                      <div className="flex flex-col gap-2">
+                        {navDropdown.map((item) => {
+                          const isActive = activeDropdownItem === item.id;
+
+                          return (
+                            <a
+                              key={item.id}
+                              href={item.href}
+                              onClick={(e) => handleDropdownClick(e, item)}
+                              onMouseEnter={() =>
+                                setActiveDropdownItem(item.id)
+                              }
+                              className={`
                               px-4 py-3 rounded-lg text-sm font-medium
                               transition-all duration-300 hover:bg-white/5
                               ${
                                 isActive
-                                  ? 'bg-gradient-to-r from-[#F2E7C9] via-[#E9C9D6] via-[#D6CFEA] to-[#BFD7EE] bg-clip-text text-transparent'
-                                  : 'text-white/80 hover:text-white'
+                                  ? "bg-gradient-to-r from-[#F2E7C9] via-[#E9C9D6] via-[#D6CFEA] to-[#BFD7EE] bg-clip-text text-transparent"
+                                  : "text-white/80 hover:text-white"
                               }
                             `}
-                          >
-                            {item.label}
-                          </a>
-                        );
-                      })}
-                    </div>
+                            >
+                              {item.label}
+                            </a>
+                          );
+                        })}
+                      </div>
 
-                    <div
-                      className="overflow-hidden bg-black rounded-[1.29px]"
-                      style={{
-                        width: '100%',
-                        height: 260,
-                      }}
-                    >
-                      <img
-                        src={
-                          navDropdownImages[activeDropdownItem] ||
-                          navDropdownImages['home']
-                        }
-                        alt="Dropdown preview"
-                        className="w-full h-full block"
+                      <div
+                        className="overflow-hidden bg-black rounded-[1.29px]"
                         style={{
-                          objectFit:
-                            activeDropdownItem === 'vision' ||
-                            activeDropdownItem === 'story'
-                              ? 'contain'
-                              : 'cover',
-                          objectPosition: 'center center',
+                          width: "100%",
+                          height: 260,
                         }}
-                      />
+                      >
+                        <img
+                          src={
+                            navDropdownImages[activeDropdownItem] ||
+                            navDropdownImages["home"]
+                          }
+                          alt="Dropdown preview"
+                          className="w-full h-full block"
+                          style={{
+                            objectFit:
+                              activeDropdownItem === "vision" ||
+                              activeDropdownItem === "story"
+                                ? "contain"
+                                : "cover",
+                            objectPosition: "center center",
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link)}
-                className={`text-[13px] transition-colors duration-300 font-medium bg-transparent border-none cursor-pointer p-0 ${
-                  (currentPage === 'companies' &&
-                    link.id === 'companies') ||
-                  (currentPage === 'VentureScreen' &&
-                    link.id === 'ventures')
-                    ? 'text-white'
-                    : 'text-white hover:text-white/80'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-7">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => handleNavClick(link)}
+                  className={`text-[13px] transition-colors duration-300 font-medium bg-transparent border-none cursor-pointer p-0 ${
+                    (currentPage === "companies" && link.id === "companies") ||
+                    (currentPage === "VentureScreen" && link.id === "ventures")
+                      ? "text-white"
+                      : "text-white hover:text-white/80"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Desktop Actions */}
@@ -415,11 +389,11 @@ export default function Navbar({
                 onClick={() => setIsLangDropdownOpen((v) => !v)}
                 className="flex items-center gap-1 text-[13px] text-white font-medium"
               >
-                <Globe size={13} />
-                <span>{t('navbar.actions.languageCode')}</span>
+                <Globe size={16} />
+                <span>{t("navbar.actions.languageCode")}</span>
                 <ChevronDown
                   size={11}
-                  className={`transition-transform duration-200 ${isLangDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`transition-transform duration-200 ${isLangDropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
@@ -431,19 +405,22 @@ export default function Navbar({
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.15 }}
                     className="absolute top-full right-0 mt-2 w-24 rounded-md border border-white/10 shadow-lg overflow-hidden z-50"
-                    style={{ backgroundColor: 'rgba(14,14,14,0.95)', backdropFilter: 'blur(20px)' }}
+                    style={{
+                      backgroundColor: "rgba(14,14,14,0.95)",
+                      backdropFilter: "blur(20px)",
+                    }}
                   >
                     {[
-                      { code: 'en', label: 'English' },
-                      { code: 'es', label: 'Español' },
+                      { code: "en", label: "English" },
+                      { code: "es", label: "Español" },
                     ].map(({ code, label }) => (
                       <button
                         key={code}
                         onClick={() => changeLanguage(code)}
                         className={`w-full text-left px-3 py-2 text-[13px] transition-colors duration-200 ${
                           i18n.language === code
-                            ? 'text-white bg-white/10'
-                            : 'text-white/60 hover:text-white hover:bg-white/5'
+                            ? "text-white bg-white/10"
+                            : "text-white/60 hover:text-white hover:bg-white/5"
                         }`}
                       >
                         {label}
@@ -462,12 +439,12 @@ export default function Navbar({
                 transition-all duration-300
                 ${
                   isPastHero
-                    ? 'bg-white text-black hover:bg-white/90'
-                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/10'
+                    ? "bg-white text-black hover:bg-white/90"
+                    : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
                 }
               `}
             >
-              {t('navbar.actions.getInTouch')}
+              {t("navbar.actions.getInTouch")}
 
               <ArrowUpRight size={13} strokeWidth={2.5} />
             </button>
@@ -490,9 +467,9 @@ export default function Navbar({
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
+            initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
+            exit={{ opacity: 0, x: "100%" }}
             transition={{
               duration: 0.3,
               ease: [0.22, 1, 0.36, 1],
@@ -517,10 +494,10 @@ export default function Navbar({
                   hover:bg-white/5
                 "
                 style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: "Inter, sans-serif",
                 }}
               >
-                {t('navbar.actions.getInTouch')}
+                {t("navbar.actions.getInTouch")}
 
                 <ArrowUpRight size={14} strokeWidth={2} />
               </button>
@@ -553,14 +530,14 @@ export default function Navbar({
                     p-0
                   "
                   style={{
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: "Inter, sans-serif",
                   }}
                 >
-                  {link.id === 'companies'
-                    ? t('navbar.mobile.ourCompanies')
-                    : link.id === 'ventures'
-                    ? t('navbar.mobile.venture')
-                    : t('navbar.mobile.joinUs')}
+                  {link.id === "companies"
+                    ? t("navbar.mobile.ourCompanies")
+                    : link.id === "ventures"
+                      ? t("navbar.mobile.venture")
+                      : t("navbar.mobile.joinUs")}
                 </button>
               ))}
             </div>
@@ -568,7 +545,7 @@ export default function Navbar({
             <div className="mt-[31px] px-[10px] flex gap-1">
               <button
                 onClick={() => {
-                  changeLanguage('en');
+                  changeLanguage("en");
                   setIsMobileOpen(false);
                 }}
                 className="
@@ -584,19 +561,21 @@ export default function Navbar({
                   transition-all duration-200
                 "
                 style={{
-                  fontFamily: 'Inter, sans-serif',
-                  borderColor: i18n.language === 'en' ? '#fff' : 'rgba(255,255,255,0.3)',
-                  background: i18n.language === 'en'
-                    ? 'linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)'
-                    : 'transparent',
+                  fontFamily: "Inter, sans-serif",
+                  borderColor:
+                    i18n.language === "en" ? "#fff" : "rgba(255,255,255,0.3)",
+                  background:
+                    i18n.language === "en"
+                      ? "linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)"
+                      : "transparent",
                 }}
               >
-                {t('navbar.mobile.english')}
+                {t("navbar.mobile.english")}
               </button>
 
               <button
                 onClick={() => {
-                  changeLanguage('es');
+                  changeLanguage("es");
                   setIsMobileOpen(false);
                 }}
                 className="
@@ -612,14 +591,16 @@ export default function Navbar({
                   transition-all duration-200
                 "
                 style={{
-                  fontFamily: 'Inter, sans-serif',
-                  borderColor: i18n.language === 'es' ? '#fff' : 'rgba(255,255,255,0.5)',
-                  background: i18n.language === 'es'
-                    ? 'linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)'
-                    : 'linear-gradient(269.79deg, rgba(242, 231, 201, 0.4) 18.11%, rgba(233, 201, 214, 0.4) 42.04%, rgba(214, 207, 234, 0.4) 71.95%, rgba(191, 215, 238, 0.4) 99.87%)',
+                  fontFamily: "Inter, sans-serif",
+                  borderColor:
+                    i18n.language === "es" ? "#fff" : "rgba(255,255,255,0.5)",
+                  background:
+                    i18n.language === "es"
+                      ? "linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)"
+                      : "transparent",
                 }}
               >
-                {t('navbar.mobile.spanish')}
+                {t("navbar.mobile.spanish")}
               </button>
             </div>
           </motion.div>
@@ -645,13 +626,13 @@ export default function Navbar({
             {/* Drawer */}
             <motion.div
               initial={{
-                x: '100%',
+                x: "100%",
               }}
               animate={{
                 x: 0,
               }}
               exit={{
-                x: '100%',
+                x: "100%",
               }}
               transition={{
                 duration: 0.35,
@@ -659,10 +640,10 @@ export default function Navbar({
               }}
               className="fixed top-0 right-0 z-[1001] h-screen overflow-y-auto"
               style={{
-                width: '612px',
-                maxWidth: '100vw',
-                background: '#111116',
-                borderLeft: '1px solid rgba(255,255,255,0.08)',
+                width: "612px",
+                maxWidth: "100vw",
+                background: "#111116",
+                borderLeft: "1px solid rgba(255,255,255,0.08)",
               }}
             >
               <div className="contact-wrapper">
@@ -670,13 +651,13 @@ export default function Navbar({
                 <button
                   onClick={() => setIsContactOpen(false)}
                   style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    background: 'transparent',
-                    border: 'none',
-                    color: '#fff',
-                    cursor: 'pointer',
+                    position: "absolute",
+                    top: "20px",
+                    right: "20px",
+                    background: "transparent",
+                    border: "none",
+                    color: "#fff",
+                    cursor: "pointer",
                     padding: 0,
                   }}
                 >
@@ -684,7 +665,7 @@ export default function Navbar({
                 </button>
 
                 {/* Heading */}
-                <h2 className="contact-title">{t('navbar.contact.title')}</h2>
+                <h2 className="contact-title">{t("navbar.contact.title")}</h2>
 
                 {/* Form */}
                 <form
@@ -693,16 +674,16 @@ export default function Navbar({
                     e.preventDefault();
 
                     const subject = encodeURIComponent(
-                      t('navbar.contact.emailSubject')
+                      t("navbar.contact.emailSubject"),
                     );
 
                     const body = encodeURIComponent(`
-${t('navbar.contact.emailBody.firstName')}: ${form.firstName}
-${t('navbar.contact.emailBody.lastName')}: ${form.lastName}
-${t('navbar.contact.emailBody.whoAmI')}: ${form.whoAmI}
-${t('navbar.contact.emailBody.email')}: ${form.email}
+${t("navbar.contact.emailBody.firstName")}: ${form.firstName}
+${t("navbar.contact.emailBody.lastName")}: ${form.lastName}
+${t("navbar.contact.emailBody.whoAmI")}: ${form.whoAmI}
+${t("navbar.contact.emailBody.email")}: ${form.email}
 
-${t('navbar.contact.emailBody.message')}:
+${t("navbar.contact.emailBody.message")}:
 ${form.message}
                       `);
 
@@ -711,7 +692,9 @@ ${form.message}
                 >
                   <div className="contact-row">
                     <div>
-                      <label style={labelStyle}>{t('navbar.contact.firstName')}</label>
+                      <label style={labelStyle}>
+                        {t("navbar.contact.firstName")}
+                      </label>
 
                       <input
                         type="text"
@@ -724,7 +707,9 @@ ${form.message}
                     </div>
 
                     <div>
-                      <label style={labelStyle}>{t('navbar.contact.lastName')}</label>
+                      <label style={labelStyle}>
+                        {t("navbar.contact.lastName")}
+                      </label>
 
                       <input
                         type="text"
@@ -738,7 +723,9 @@ ${form.message}
                   </div>
 
                   <div>
-                    <label style={labelStyle}>{t('navbar.contact.whoAmI')}</label>
+                    <label style={labelStyle}>
+                      {t("navbar.contact.whoAmI")}
+                    </label>
 
                     <select
                       name="whoAmI"
@@ -747,28 +734,40 @@ ${form.message}
                       required
                       className="contact-input"
                       style={{
-                        appearance: 'none',
+                        appearance: "none",
                         backgroundImage:
                           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")",
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right 14px center',
-                        paddingRight: '40px',
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 14px center",
+                        paddingRight: "40px",
                       }}
                     >
                       <option value="" disabled>
-                        {t('navbar.contact.selectPlaceholder')}
+                        {t("navbar.contact.selectPlaceholder")}
                       </option>
 
-                      <option value="Founder">{t('navbar.contact.options.founder')}</option>
-                      <option value="Customer">{t('navbar.contact.options.customer')}</option>
-                      <option value="Company">{t('navbar.contact.options.company')}</option>
-                      <option value="Investor">{t('navbar.contact.options.investor')}</option>
-                      <option value="Media">{t('navbar.contact.options.media')}</option>
+                      <option value="Founder">
+                        {t("navbar.contact.options.founder")}
+                      </option>
+                      <option value="Customer">
+                        {t("navbar.contact.options.customer")}
+                      </option>
+                      <option value="Company">
+                        {t("navbar.contact.options.company")}
+                      </option>
+                      <option value="Investor">
+                        {t("navbar.contact.options.investor")}
+                      </option>
+                      <option value="Media">
+                        {t("navbar.contact.options.media")}
+                      </option>
                     </select>
                   </div>
 
                   <div>
-                    <label style={labelStyle}>{t('navbar.contact.email')}</label>
+                    <label style={labelStyle}>
+                      {t("navbar.contact.email")}
+                    </label>
 
                     <input
                       type="email"
@@ -781,24 +780,26 @@ ${form.message}
                   </div>
 
                   <div>
-                    <label style={labelStyle}>{t('navbar.contact.message')}</label>
+                    <label style={labelStyle}>
+                      {t("navbar.contact.message")}
+                    </label>
 
                     <textarea
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      placeholder={t('navbar.contact.messagePlaceholder')}
+                      placeholder={t("navbar.contact.messagePlaceholder")}
                       className="contact-input"
                       style={{
-                        minHeight: '140px',
-                        paddingTop: '14px',
-                        resize: 'none',
+                        minHeight: "140px",
+                        paddingTop: "14px",
+                        resize: "none",
                       }}
                     />
                   </div>
 
                   <button type="submit" className="contact-submit">
-                    {t('navbar.contact.sendForm')}
+                    {t("navbar.contact.sendForm")}
                   </button>
                 </form>
               </div>
