@@ -64,7 +64,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[680px] md:h-screen flex flex-col justify-end overflow-hidden bg-black"
+      className="relative w-full h-screen flex flex-col justify-end overflow-hidden bg-black"
       id="hero"
     >
       <div ref={imageRef} className="absolute inset-0 z-10 overflow-hidden">
@@ -89,7 +89,7 @@ export default function HeroSection() {
           <h1
             className={`
               relative
-              text-[#ffffff]
+              text-[#f8f8f8]
               text-[clamp(2.2rem,5vw,5.2rem)]
               drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]
               leading-[1.02]
@@ -111,7 +111,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             className="
-              mt-6
+              mt-20 sm:mt-6
               flex
               items-center
               justify-center

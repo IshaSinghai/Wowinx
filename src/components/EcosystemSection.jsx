@@ -63,19 +63,19 @@ export default function EcosystemSection() {
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left: 3D Cross Image */}
-        <div ref={imageRef}>
-          <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-black">
+        <div ref={imageRef} className="order-2 lg:order-1">
+          <div className="relative w-full sm:aspect-[4/3] rounded-lg overflow-hidden bg-black">
             <img
               src="/images/unsplash.jpg"
               alt="3D cross structure representing ecosystem"
-              className="w-full h-full object-cover"
+              className="w-full h-full scale-150 sm:scale-100 object-cover"
               loading="lazy"
             />
           </div>
         </div>
 
         {/* Right: Text */}
-        <div ref={textRef}>
+        <div ref={textRef} className="order-1 lg:order-2">
           <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]" style={{ whiteSpace: 'pre-line' }}>
             {t('ecosystem.title')}
           </h2>

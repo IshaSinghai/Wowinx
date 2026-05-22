@@ -66,7 +66,7 @@ export default function BuildNextSection() {
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         {/* Left: Text */}
-        <div ref={textRef} className="order-2 md:order-1">
+        <div ref={textRef} className="order-1 md:order-1">
           <h2 className="text-section font-semibold text-white mb-6 tracking-[-0.02em]" style={{ whiteSpace: 'pre-line' }}>
             {t('buildNext.title')}
           </h2>
@@ -89,7 +89,7 @@ export default function BuildNextSection() {
         </div>
 
         {/* Right: Image */}
-        <div ref={imageRef} className="order-1 md:order-2">
+        <div ref={imageRef} className="order-2 md:order-2">
           <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
             <img
               src="/images/8fd93ab3a99f4f956a66a4ffd922851a454682b8.png"
