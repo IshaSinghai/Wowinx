@@ -140,10 +140,8 @@ export default function OurVisionPage() {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.4 }}
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute w-full h-full object-cover object-right"
             />
-
-            <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#111110] via-[#111110]/60 to-transparent z-20" />
           </div>
 
           <div className="relative z-30 h-full flex flex-col justify-end px-2 md:px-12 pb-10 md:pb-16">
@@ -154,7 +152,7 @@ export default function OurVisionPage() {
               className="max-w-[1400px] mx-auto w-full"
             >
               <h1
-                className="text-white text-[24px] md:text-[clamp(1.4rem,3.5vw,2.4rem)] font-normal leading-[1.1] md:leading-[1.3] tracking-[-0.01em] max-w-[600px]"
+                className="text-white px-16 sm:px-0 text-[24px] text-center sm:text-left md:text-[clamp(1.4rem,3.5vw,2.4rem)] font-normal leading-[40px] md:leading-[1.3] tracking-[-0.01em] max-w-[600px]"
                 style={{
                   fontFamily:
                     'PP Neue Montreal, Inter, sans-serif',
@@ -169,13 +167,13 @@ export default function OurVisionPage() {
         {/* Manifesto */}
         <section
           ref={manifestoRef}
-          className="w-full bg-[#111110] py-8 md:py-28 px-2 md:px-12"
+          className="w-full bg-[#111110] py-8 md:py-28 px-4 md:px-12"
           id="vision-manifesto"
         >
           <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
             <div ref={manifestoTextRef}>
               <h2
-                className="text-white text-[23px] md:text-[clamp(1.5rem,3.5vw,2.8rem)] font-semibold leading-[1.08] md:leading-[1.15] tracking-[-0.02em] max-w-[700px] uppercase"
+                className="text-white text-[32px] md:text-[clamp(1.5rem,3.5vw,2.8rem)] font-normal leading-[40px] md:leading-[1.15] tracking-[-0.02em] max-w-[700px] uppercase"
                 style={{
                   fontFamily:
                     'PP Neue Montreal, Inter, sans-serif',
@@ -190,7 +188,7 @@ export default function OurVisionPage() {
               className="flex-shrink-0 flex justify-end"
             >
               <button
-                className="flex items-center gap-2 text-white text-sm font-medium hover:opacity-80 transition-opacity duration-300 group whitespace-nowrap"
+                className="flex items-center gap-2 text-white text-[24px] font-medium hover:opacity-80 transition-opacity duration-300 group whitespace-nowrap"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 <span className="w-14 h-px bg-white/50 block" />
@@ -229,7 +227,7 @@ export default function OurVisionPage() {
 
               <div className="relative md:absolute left-0 md:left-20 bottom-auto md:bottom-12 z-20 px-2 md:px-0 -mt-10 md:mt-0">
                 <h2
-                  className="text-black text-[32px] md:text-[56px] font-normal leading-none tracking-[-0.03em]"
+                  className="text-black text-[40px] md:text-[56px] font-normal leading-none tracking-[-0.03em]"
                   style={{
                     fontFamily:
                       'PP Neue Montreal, Inter, sans-serif',
@@ -275,7 +273,7 @@ export default function OurVisionPage() {
 
                             <div>
                               <h3
-                                className={`font-normal leading-[1.15] transition-colors duration-300 ${
+                                className={`text-[24px] leading-[32px] font-normal sm:leading-[1.15] transition-colors duration-300 ${
                                   isActive
                                     ? 'text-white text-[15px] md:text-[25px]'
                                     : 'text-white text-[10px] md:text-[12px]'
@@ -291,7 +289,7 @@ export default function OurVisionPage() {
                               {isActive && (
                                 <>
                                   <p
-                                    className="mt-3 md:mt-4 text-white text-[10px] md:text-[12px] leading-[1.45] max-w-[390px]"
+                                    className="mt-3 md:mt-4 text-white text-[14px] md:text-[12px] leading-[16px] max-w-[390px]"
                                     style={{
                                       fontFamily:
                                         'Inter, sans-serif',
