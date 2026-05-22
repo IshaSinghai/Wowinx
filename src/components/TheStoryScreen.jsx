@@ -7,10 +7,8 @@ import Footer from './Footer';
 
 const FONT_STYLE = {
   fontFamily: '"PP Neue Montreal", sans-serif',
-  fontSize: '56px',
   fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '64px',
   letterSpacing: '-0.56px',
 };
 
@@ -41,29 +39,15 @@ export default function StoryScreen() {
     <div style={{ backgroundColor: '#000', color: '#fff', overflowX: 'hidden' }}>
 
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', width: '100%', height: '100vh' }}>
+       <section className='relative w-full h-[80vh] sm:h-screen'>
         <img
           src="/images/StoryImage.png"
           alt="story hero"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          className='w-full h-full object-cover block'
         />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.7) 100%)'
-        }} />
-        <div style={{
-          position: 'absolute', bottom: 64,
-          left: 'clamp(24px, 6vw, 80px)',
-          maxWidth: 700,
-        }}>
-          <h1 style={{
-            fontSize: 'clamp(32px, 5.5vw, 72px)',
-            fontWeight: 300,
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            margin: 0,
-            whiteSpace: 'pre-line',
-          }}>
+        <div className='absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.1)] via-[rgba(0,0,0,0.1)] to-[rgba(0,0,0,0.7)]' />
+        <div className='absolute bottom-16 sm:left-[clamp(24px,6vw,80px)] max-w-[700px]'>
+          <h1 className='text-center sm:text-left text-[32px] sm:text-[72px] font-light leading-[1.05] tracking-[-0.02em] whitespace-pre-line'>
             {t('story.hero')}
           </h1>
         </div>
@@ -71,7 +55,7 @@ export default function StoryScreen() {
 
       {/* ── STATIC INTRO PARAGRAPH ── */}
       <section style={{ padding: '120px clamp(24px, 6vw, 80px) 80px' }}>
-        <p style={{
+        <p className="text-[32px] sm:text-[56px] leading-[40px] sm:leading-[64px]" style={{
           ...FONT_STYLE,
           color: '#F8F8F8',
           margin: 0,
@@ -91,6 +75,7 @@ export default function StoryScreen() {
               style={{ padding: '48px clamp(24px, 6vw, 80px)' }}
             >
               <motion.p
+                className="text-[32px] sm:text-[56px] leading-[40px] sm:leading-[64px]"
                 animate={{
                   opacity: dist === 0 ? 1 : dist === 1 ? 0.3 : 0.1,
                   filter:
@@ -103,7 +88,7 @@ export default function StoryScreen() {
                 style={{
                   ...FONT_STYLE,
                   margin: 0,
-                  color: '#303035',
+                  color: '#f8f8f8',
                 }}
               >
                 {text}
