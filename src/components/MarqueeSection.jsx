@@ -34,14 +34,12 @@ export default function MarqueeSection() {
 
   const marqueeContent = (
     <>
-      <span style={{
+    <span
+      className='text-[22px] sm:text-[48px] font-normal leading-[48px] text-[#111110] whitespace-nowrap'
+      style={{
         fontFamily: '"PP Neue Montreal", sans-serif',
-        fontSize: '48px',
-        fontWeight: 400,
-        lineHeight: '48px',
-        color: '#111110',
-        whiteSpace: 'nowrap',
-      }}>
+      }}
+    >
         {t('marquee.text')}
       </span>
       <span style={{
@@ -60,7 +58,7 @@ export default function MarqueeSection() {
 
   return (
     <section style={{ width: '100%', overflow: 'hidden', backgroundColor: '#F8F5EF', borderTop: '1px solid rgba(17,17,16,0.08)', borderBottom: '1px solid rgba(17,17,16,0.08)' }}>
-      <div style={{ padding: '24px 0 32px 0' }}>
+      <div className='py-3 sm:pt-6 sm:pb-8'>
         <div
           ref={trackRef}
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', '--marquee-speed': 1 }}
