@@ -246,7 +246,7 @@ export default function App() {
               <EcosystemSection />
             </section>
 
-            <section id="marquee-image" className="relative w-full min-h-[680px] md:h-screen overflow-hidden">
+            <section id="marquee-image" className="relative w-full min-h-[300px] sm:min-h-[680px] md:h-screen overflow-hidden">
               <img
                 src="/images/MarqueUpdated.png"
                 alt=""
