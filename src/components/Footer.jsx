@@ -55,51 +55,45 @@ export default function Footer() {
               className="h-8 w-auto object-contain"
             />
             <p className="mt-7 text-[16px] sm:text-[24px] leading-[1.35] text-white/95">
-              {t('footer.top.description', {
-                defaultValue:
-                  'The ecosystem of companies that build the next generation of human experiences.',
-              })}
+              {t('footer.top.description')}
             </p>
           </div>
 
           <div>
             <h3 className="text-[20px] leading-[28px] text-white font-normal">
-              {t('footer.top.linksTitle', { defaultValue: 'Links and resources' })}
+              {t('footer.top.linksTitle')}
             </h3>
             <div className="mt-10 flex flex-col gap-4">
               <a href="#story" className="text-[14px] leading-[20px] text-white/90 hover:text-white transition-colors duration-300">
-                {t('footer.top.story', { defaultValue: 'The story' })}
+                {t('footer.top.story')}
               </a>
               <a href="#OurVisionPage" className="text-[14px] leading-[20px] text-white/90 hover:text-white transition-colors duration-300">
-                {t('footer.top.vision', { defaultValue: 'Our vision' })}
+                {t('footer.top.vision')}
               </a>
             </div>
             <a
               href="#"
               className="mt-8 inline-flex items-center gap-2 border border-white/90 text-white text-[16px] leading-[24px] px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300"
             >
-              <span>{t('footer.top.linkedin', { defaultValue: 'LinkedIn' })}</span>
+              <span>{t('footer.top.linkedin')}</span>
               <ArrowUpRight size={30} />
             </a>
           </div>
 
           <div>
             <h3 className="text-[18px] leading-[28px] text-white font-normal">
-              {t('footer.top.subscribeTitle', { defaultValue: 'Suscribe' })}
+              {t('footer.top.subscribeTitle')}
             </h3>
             <p className="mt-10 text-[14px] leading-[20px] text-white/90">
-              {t('footer.top.subscribeText', {
-                defaultValue:
-                  'Suscribe to our newsletter for the latest news, tournaments and exclusive content',
-              })}
+              {t('footer.top.subscribeText')}
             </p>
             <input
               type="email"
-              placeholder={t('footer.top.emailPlaceholder', { defaultValue: 'tu@email.com' })}
+              placeholder={t('footer.top.emailPlaceholder')}
               className="mt-7 w-full bg-black/55 border border-white/15 rounded-[14px] px-4 py-3 text-[16px] leading-[24px] text-white placeholder:text-white/35 outline-none focus:border-white/35 transition-colors duration-300"
             />
             <p className="mt-4 text-[14px] leading-[20px] text-white/35">
-              {t('footer.top.unsubscribe', { defaultValue: 'No spam. Unsubscribe' })}
+              {t('footer.top.unsubscribe')}
             </p>
           </div>
         </div>

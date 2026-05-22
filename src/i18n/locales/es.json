@@ -239,6 +239,17 @@
     ]
   },
   "footer": {
+    "top": {
+      "description": "El ecosistema de empresas que construye la próxima generación de experiencias humanas.",
+      "linksTitle": "Enlaces y recursos",
+      "story": "La historia",
+      "vision": "Nuestra visión",
+      "linkedin": "LinkedIn",
+      "subscribeTitle": "Suscríbete",
+      "subscribeText": "Suscríbete a nuestro newsletter para conocer las últimas noticias, torneos y contenido exclusivo",
+      "emailPlaceholder": "tu@email.com",
+      "unsubscribe": "Sin spam. Cancela la suscripción"
+    },
     "rights": "2026. Todos los derechos reservados.",
     "privacy": "Política de privacidad",
     "cookies": "Política de cookies",

@@ -239,6 +239,17 @@
     ]
   },
   "footer": {
+    "top": {
+      "description": "The ecosystem of companies that build the next generation of human experiences.",
+      "linksTitle": "Links and resources",
+      "story": "The story",
+      "vision": "Our vision",
+      "linkedin": "LinkedIn",
+      "subscribeTitle": "Subscribe",
+      "subscribeText": "Subscribe to our newsletter for the latest news, tournaments and exclusive content",
+      "emailPlaceholder": "your@email.com",
+      "unsubscribe": "No spam. Unsubscribe"
+    },
     "rights": "2026. All rights reserved.",
     "privacy": "Privacy policy",
     "cookies": "Cookies policy",
