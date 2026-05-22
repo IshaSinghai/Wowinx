@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslation } from 'react-i18next';
+import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,14 +42,70 @@ export default function Footer() {
       id="contact"
       className="relative w-full bg-[#111110] overflow-hidden"
     >
-      {/* Divider */}
-      <div className="absolute top-0 left-6 md:left-12 right-6 md:right-12 h-[1px] bg-white/20 z-30"></div>
-
       {/* Content */}
       <div
         ref={contentRef}
         className="relative z-30"
       >
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-14 md:pt-16 pb-10 md:pb-12 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          <div className="max-w-[320px]">
+            <img
+              src="/images/wowinx.png"
+              alt="wowinx"
+              className="h-8 w-auto object-contain"
+            />
+            <p className="mt-7 text-[16px] sm:text-[24px] leading-[1.35] text-white/95">
+              {t('footer.top.description', {
+                defaultValue:
+                  'The ecosystem of companies that build the next generation of human experiences.',
+              })}
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-[20px] leading-[28px] text-white font-normal">
+              {t('footer.top.linksTitle', { defaultValue: 'Links and resources' })}
+            </h3>
+            <div className="mt-10 flex flex-col gap-4">
+              <a href="#story" className="text-[14px] leading-[20px] text-white/90 hover:text-white transition-colors duration-300">
+                {t('footer.top.story', { defaultValue: 'The story' })}
+              </a>
+              <a href="#OurVisionPage" className="text-[14px] leading-[20px] text-white/90 hover:text-white transition-colors duration-300">
+                {t('footer.top.vision', { defaultValue: 'Our vision' })}
+              </a>
+            </div>
+            <a
+              href="#"
+              className="mt-8 inline-flex items-center gap-2 border border-white/90 text-white text-[16px] leading-[24px] px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              <span>{t('footer.top.linkedin', { defaultValue: 'LinkedIn' })}</span>
+              <ArrowUpRight size={30} />
+            </a>
+          </div>
+
+          <div>
+            <h3 className="text-[18px] leading-[28px] text-white font-normal">
+              {t('footer.top.subscribeTitle', { defaultValue: 'Suscribe' })}
+            </h3>
+            <p className="mt-10 text-[14px] leading-[20px] text-white/90">
+              {t('footer.top.subscribeText', {
+                defaultValue:
+                  'Suscribe to our newsletter for the latest news, tournaments and exclusive content',
+              })}
+            </p>
+            <input
+              type="email"
+              placeholder={t('footer.top.emailPlaceholder', { defaultValue: 'tu@email.com' })}
+              className="mt-7 w-full bg-black/55 border border-white/15 rounded-[14px] px-4 py-3 text-[16px] leading-[24px] text-white placeholder:text-white/35 outline-none focus:border-white/35 transition-colors duration-300"
+            />
+            <p className="mt-4 text-[14px] leading-[20px] text-white/35">
+              {t('footer.top.unsubscribe', { defaultValue: 'No spam. Unsubscribe' })}
+            </p>
+          </div>
+        </div>
+
+        <div className="mx-6 md:mx-12 h-[1px] bg-white/20" />
+
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           
           <p className="text-xs text-white/50">
@@ -108,43 +165,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}                                                                                                     
-
-
-{/* Images Section */}
-<div className="w-full bg-[#111110] overflow-hidden">
-  {/* HANDS IMAGE */}
-  <div className="relative w-full h-[180px] md:h-[240px] lg:h-[280px] overflow-hidden">
-    <img
-      src="/images/hands2.png"
-      alt="decorative hands"
-      className="
-        absolute
-        left-0
-        top-0
-        w-full
-        h-full
-        object-cover
-        object-top
-        block
-      "
-    />
-  </div>
-
-  {/* WOWINX IMAGE */}
-  <div className="relative w-full -mt-[95px] md:-mt-[145px] lg:-mt-[175px] flex justify-center overflow-hidden">
-    <img
-      src="/images/wowinx footer.png"
-      alt="wowinx footer"
-      className="
-        w-[104%]
-        md:w-[100%]
-        lg:w-[98%]
-        h-auto
-        object-contain
-        block
-        opacity-35
-      "
-    />
-  </div>
-</div>
+}

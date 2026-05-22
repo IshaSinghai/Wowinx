@@ -100,7 +100,7 @@ export default function StoryScreen() {
             >
               <motion.p
                 animate={{
-                  opacity: dist === 0 ? 1 : dist === 1 ? 0.3 : 0.1,
+                  opacity: dist === 0 ? 1 : dist === 1 ? 0.55 : 0.2,
                   filter:
                     dist === 0 ? 'blur(0px)'
                     : dist === 1 ? 'blur(2px)'
@@ -111,7 +111,7 @@ export default function StoryScreen() {
                 style={{
                   ...FONT_STYLE,
                   margin: 0,
-                  color: '#303035',
+                  color: '#F8F8F8',
                 }}
               >
                 {text}
