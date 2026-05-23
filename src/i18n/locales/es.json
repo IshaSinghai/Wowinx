@@ -3,7 +3,7 @@
     "links": {
       "companies": "Nuestras empresas",
       "ventures": "Ventures",
-      "joinUs": "Únete"
+      "joinUs": "Únete a nosotros"
     },
     "dropdown": {
       "home": "Inicio",
@@ -17,7 +17,7 @@
     "mobile": {
       "ourCompanies": "Nuestras empresas",
       "venture": "Venture",
-      "joinUs": "Únete",
+      "joinUs": "Únete a nosotros",
       "english": "Inglés",
       "spanish": "Español"
     },
@@ -59,7 +59,7 @@
   "ecosystem": {
     "title": "Cada empresa del\necosistema abre\npuertas a las\nsiguientes.",
     "description": "Si ves una oportunidad de negocio en lo que estamos construyendo, hablemos. Aquí, la ejecución es el lenguaje común.",
-    "cta": "Hablemos"
+    "cta": "Conecta con nuestro ecosistema"
   },
   "marquee": {
     "text": "El renacimiento del siglo XXII"
@@ -87,7 +87,7 @@
       },
       "Aethern": {
         "description": "Infraestructura blockchain diseñada para banca, mercados de capitales e instituciones financieras.",
-        "longDescription": "Construye infraestructura blockchain especializada para el sector financiero. Diseña cada capa del stack on-chain — consenso, ejecución, liquidación, identidad y cumplimiento — para satisfacer las demandas reales de bancos, gestores de activos e emisores institucionales. Su enfoque vertical, combinado con experiencia probada desarrollando para grandes clientes financieros, coloca a Aethern entre las pocas empresas capaces de unir arquitectura de protocolo con lógica de riesgo institucional."
+        "longDescription": "Construye infraestructura blockchain especializada para el sector financiero. Diseña cada capa del stack on-chain — consenso, ejecución, liquidación, identidad y cumplimiento — para satisfacer las demandas reales de bancos, gestores de activos y emisores institucionales. Su enfoque vertical, combinado con experiencia probada desarrollando para grandes clientes financieros, coloca a Aethern entre las pocas empresas capaces de unir arquitectura de protocolo con lógica de riesgo institucional."
       },
       "Trivium": {
         "description": "Ingeniería full stack transversal que sustenta la arquitectura técnica del ecosistema.",
@@ -150,7 +150,7 @@
         "longDescription": "Es una plataforma descentralizada de provisión de liquidez que permite a los usuarios depositar activos en pools optimizados en AMMs como Uniswap V3, de forma automática y sin conocimientos técnicos previos. Los usuarios mantienen el control total de sus fondos en todo momento, mientras el rendimiento proviene exclusivamente de la actividad real del mercado. Su arquitectura sirve tanto a usuarios individuales como a instituciones o socios que necesitan desplegar soluciones de liquidez bajo su propia marca."
       },
       "Esignus": {
-        "description": "Plataforma B2B de Hardware Wallet as a Service para bancos, fintechs e exchanges.",
+        "description": "Plataforma B2B de Hardware Wallet as a Service para bancos, fintechs y exchanges.",
         "longDescription": "Es una plataforma B2B de Hardware Wallet as a Service que permite a bancos, fintechs e exchanges lanzar su propia solución de autocustodia con marca propia. Su infraestructura integra un chip certificado EAL6+, una app white-label, un sistema de recuperación descentralizado y gestión de herencia digital. Su posición competitiva está respaldada por certificaciones de seguridad bancaria, premios nacionales de ciberseguridad y una base de clientes institucionales ya activa."
       },
       "Hashwallet": {
@@ -162,7 +162,7 @@
         "longDescription": "ROV es la comunidad líder de realidad virtual y aumentada en el mundo hispanohablante. Fundada en 2013, reúne noticias, análisis, foro, podcasts y una base de datos para una audiencia que adoptó XR mucho antes de la adopción masiva. Dentro de wowinX, aporta la comunidad nativa del espacio XR donde opera el grupo. Ahora evoluciona hacia un proyecto internacional, manteniendo su profundidad editorial, sus estándares y su compromiso con XR."
       },
       "TierraDeCreadores": {
-        "description": "Ecosistema latinoamericano para creadores digitales con formación, comunidad y oportunidades de negocio.",
+        "description": "Evento experiencial global para creadores que combina contenido, networking y desarrollo de negocio.",
         "longDescription": "Es un evento experiencial global diseñado para creadores. Su modelo combina contenido, networking y desarrollo de negocio en un formato físico replicable en diferentes territorios. Puede desplegarse en distintos mercados como plataforma estratégica para conectar creadores, socios y oportunidades dentro de la economía creadora."
       },
       "TheArchivesOfSilence": {
@@ -213,17 +213,17 @@
       {
         "number": "/01",
         "title": "El momento en que todo converge",
-        "text": "Deporte, entretenimiento, cultura, negocio y digital se fusionan en un solo espacio de experiencia humana — explorando infinitas, nuevas vistas en esta esfera. La identidad entre casi el mercado y construyó posición desde el origen."
+        "text": "Deporte, entretenimiento, cultura, negocio y digital convergen en un único espacio de experiencia humana, abriendo infinitas posibilidades nuevas. En este mercado emergente, la posición se construye desde el origen."
       },
       {
         "number": "/02",
         "title": "Donde otros ven sectores, wowinx ve conexiones",
-        "text": "Construir otros tres sectores, impactar en la comunicación."
+        "text": "Al construir entre sectores, creamos vínculos más fuertes entre industrias y transformamos la forma en que las personas se conectan, se comunican y participan."
       },
       {
         "number": "/03",
         "title": "Una economía más inteligente, más inmersiva y más humana.",
-        "text": "Ese es el mundo que wowinx está construyendo. Empresas con valor económico y con valores humanos, porque ambos crecen cuando juntas. El digital es el territorio. Las personas, la razón de todo."
+        "text": "Ese es el mundo que wowinx está construyendo. Empresas con valor económico y valores humanos, porque ambos crecen juntos. Lo digital es el territorio. Las personas, la razón de todo."
       }
     ]
   },
@@ -239,6 +239,17 @@
     ]
   },
   "footer": {
+    "top": {
+      "description": "El ecosistema de empresas que construye la próxima generación de experiencias humanas.",
+      "linksTitle": "Enlaces y recursos",
+      "story": "La historia",
+      "vision": "Nuestra visión",
+      "linkedin": "LinkedIn",
+      "subscribeTitle": "Suscríbete",
+      "subscribeText": "Suscríbete a nuestro newsletter para conocer las últimas noticias, torneos y contenido exclusivo",
+      "emailPlaceholder": "tu@email.com",
+      "unsubscribe": "Sin spam. Cancela la suscripción"
+    },
     "rights": "2026. Todos los derechos reservados.",
     "privacy": "Política de privacidad",
     "cookies": "Política de cookies",

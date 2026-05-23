@@ -26,6 +26,7 @@ const labelStyle = {
 
 export default function Navbar({ currentPage, setCurrentPage }) {
   const { t, i18n } = useTranslation();
+  const activeLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
 
   const [isPastHero, setIsPastHero] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -418,7 +419,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
                         key={code}
                         onClick={() => changeLanguage(code)}
                         className={`w-full text-left px-3 py-2 text-[13px] transition-colors duration-200 ${
-                          i18n.language === code
+                          activeLanguage === code
                             ? "text-white bg-white/10"
                             : "text-white/60 hover:text-white hover:bg-white/5"
                         }`}
@@ -444,7 +445,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
                 }
               `}
             >
-              {t("navbar.actions.getInTouch")}
+              {t("navbar.contact.title")}
 
               <ArrowUpRight size={13} strokeWidth={2.5} />
             </button>
@@ -563,9 +564,9 @@ export default function Navbar({ currentPage, setCurrentPage }) {
                 style={{
                   fontFamily: "Inter, sans-serif",
                   borderColor:
-                    i18n.language === "en" ? "#fff" : "rgba(255,255,255,0.3)",
+                    activeLanguage === "en" ? "#fff" : "rgba(255,255,255,0.3)",
                   background:
-                    i18n.language === "en"
+                    activeLanguage === "en"
                       ? "linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)"
                       : "transparent",
                 }}
@@ -593,9 +594,9 @@ export default function Navbar({ currentPage, setCurrentPage }) {
                 style={{
                   fontFamily: "Inter, sans-serif",
                   borderColor:
-                    i18n.language === "es" ? "#fff" : "rgba(255,255,255,0.5)",
+                    activeLanguage === "es" ? "#fff" : "rgba(255,255,255,0.5)",
                   background:
-                    i18n.language === "es"
+                    activeLanguage === "es"
                       ? "linear-gradient(269.79deg, rgba(242,231,201,0.4) 18.11%, rgba(233,201,214,0.4) 42.04%, rgba(214,207,234,0.4) 71.95%, rgba(191,215,238,0.4) 99.87%)"
                       : "transparent",
                 }}

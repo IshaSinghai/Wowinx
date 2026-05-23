@@ -16,7 +16,7 @@
     },
     "mobile": {
       "ourCompanies": "Our companies",
-      "venture": "Venture",
+      "venture": "Ventures",
       "joinUs": "Join us",
       "english": "English",
       "spanish": "Spanish"
@@ -213,12 +213,12 @@
       {
         "number": "/01",
         "title": "The moment when everything converges",
-        "text": "Sport, entertainment, culture, business and digital merge into a single space of human experience — exploring infinite, new vistas in this sphere. Identity between the emerging market built position from the origin."
+        "text": "Sport, entertainment, culture, business, and digital converge into a single space of human experience, opening infinite new possibilities. In this emerging market, position is built from the very beginning."
       },
       {
         "number": "/02",
         "title": "Where others see sectors, wowinx sees connections",
-        "text": "Build three other sectors, impact communication."
+        "text": "By building across sectors, we create stronger links between industries and reshape how people connect, communicate, and participate."
       },
       {
         "number": "/03",
@@ -239,6 +239,17 @@
     ]
   },
   "footer": {
+    "top": {
+      "description": "The ecosystem of companies that build the next generation of human experiences.",
+      "linksTitle": "Links and resources",
+      "story": "The story",
+      "vision": "Our vision",
+      "linkedin": "LinkedIn",
+      "subscribeTitle": "Subscribe",
+      "subscribeText": "Subscribe to our newsletter for the latest news, tournaments and exclusive content",
+      "emailPlaceholder": "your@email.com",
+      "unsubscribe": "No spam. Unsubscribe"
+    },
     "rights": "2026. All rights reserved.",
     "privacy": "Privacy policy",
     "cookies": "Cookies policy",
