@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import MarqueeSection from "./MarqueeSection";
 import Footer from "./Footer";
 
-const insideCompanyGrid = "/images/InsideCompanyGrid.jpg";
+const DEFAULT_COMPANY_IMAGE = "/images/DefaultCompanyImage.png";
 
 const CATEGORIES = [
   "All",
@@ -45,23 +45,30 @@ const COMPANIES = [
   { name: "BefootBall",             logoKey: "BeFootBall",         category: "Tech" },
   { name: "VirtualSports",          logoKey: "VirtualSports",      category: "Tech" },
   { name: "BeSportsAcademy",        logoKey: "BeSportsAcademy",    category: "Money" },
-  { name: "AldolsX",               logoKey: "AldolsX",            category: "Entertainment" },
-  { name: "Stratos",                logoKey: "Stratos",            category: "Infrastructure" },
   { name: "IMM3RSIVE",              logoKey: "IMM3RSIVE",          category: "Sports" },
   { name: "WX180Productions",       logoKey: "WX180Productions",   category: "Sports" },
-  { name: "True’sMusic",            logoKey: "True’sMusic",        category: "Money" },
-  { name: "GROWFY",                 logoKey: "GROWFY",             category: "Tech" },
+  { name: "True’sMusic",            logoKey: "True'sMusic",        category: "Money" },
+  { name: "3B3",                    logoKey: "3B3",             category: "Tech" },
   { name: "KeyQuest",               logoKey: "KeyQuest",           category: "Tech" },
-  { name: "Ownia",                  logoKey: "Ownia",              category: "Money" },
   { name: "Seetrex",                logoKey: "Seetrex",            category: "Infrastructure" },
-  { name: "Bulfy",                  logoKey: "Bullfy",             category: "Culture" },
+  { name: "Bulfy",                  logoKey: "Bullfy",             logoFile: "Bullfy", category: "Culture" },
   { name: "EasyFi",                 logoKey: "EasyFi",             category: "Money" },
-  { name: "eSignus",                logoKey: "Esignus",            category: "Infrastructure" },
-  { name: "HashWallet",             logoKey: "Hashwallet",         category: "Money" },
+  { name: "eSignus",                logoKey: "Esignus",            logoFile: "Esignus", category: "Infrastructure" },
+  { name: "HashWallet",             logoKey: "Hashwallet",         logoFile: "Hashwallet", category: "Money" },
   { name: "ROV",                    logoKey: "ROV",                category: "Entertainment" },
-  { name: "Tierra de Creadores",    logoKey: "TierraDeCreadores",  category: "Culture" },
-  { name: "The Archives of Silence",logoKey: "TheArchivesOfSilence",category: "Culture" },
 ];
+
+const getLogoFileBase = (company) => company.logoFile || company.logoKey;
+
+const getCompanyImageCandidates = (company) => {
+  const companyIndex = COMPANIES.findIndex((c) => c.name === company.name);
+  const orderedCompanyImage = companyIndex >= 0 ? `/images/Company${companyIndex + 1}.png` : null;
+
+  return [
+    ...(orderedCompanyImage ? [orderedCompanyImage] : []),
+    DEFAULT_COMPANY_IMAGE,
+  ];
+};
 
 function gradientButtonStyle(active = false) {
   return active
@@ -115,6 +122,7 @@ export function CompaniesSection() {
   const [active, setActive] = useState("All");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selected, setSelected] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const filtered = useMemo(
     () =>
@@ -122,6 +130,11 @@ export function CompaniesSection() {
         ? COMPANIES
         : COMPANIES.filter((c) => c.category === active),
     [active]
+  );
+
+  const selectedImageCandidates = useMemo(
+    () => (selected ? getCompanyImageCandidates(selected) : [DEFAULT_COMPANY_IMAGE]),
+    [selected]
   );
 
   useEffect(() => {
@@ -258,7 +271,10 @@ export function CompaniesSection() {
             {filtered.map((company, idx) => (
               <button
                 key={`${company.name}-${idx}`}
-                onClick={() => setSelected(company)}
+                onClick={() => {
+                  setSelected(company);
+                  setSelectedImageIndex(0);
+                }}
                 className="group flex flex-col text-left"
                 style={{
                   width: "311px",
@@ -288,7 +304,7 @@ export function CompaniesSection() {
                   className="group-hover:[border-color:rgba(255,255,255,0.9)]"
                 >
                   <img
-                    src={`/images/${company.logoKey}Logo.png`}
+                    src={`/images/${getLogoFileBase(company)}Logo.png`}
                     alt={`${company.name} logo`}
                     loading="lazy"
                     onError={(e) => {
@@ -419,7 +435,10 @@ export function CompaniesSection() {
                     return (
                       <button
                         key={c.name}
-                        onClick={() => setSelected(c)}
+                        onClick={() => {
+                          setSelected(c);
+                          setSelectedImageIndex(0);
+                        }}
                         style={{
                           fontFamily: "Inter, sans-serif",
                           fontSize: "13px",
@@ -567,9 +586,20 @@ export function CompaniesSection() {
                       height: "100%",
                       borderRadius: "3px",
                       overflow: "hidden",
-                      background: `url(${insideCompanyGrid}) lightgray 50% / cover no-repeat`,
                     }}
-                  />
+                  >
+                    <img
+                      className="object-cover"
+                      src={selectedImageCandidates[selectedImageIndex]}
+                      alt={`${selected.name} image`}
+                      onError={() => {
+                        setSelectedImageIndex((prev) => {
+                          if (prev >= selectedImageCandidates.length - 1) return prev;
+                          return prev + 1;
+                        });
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
