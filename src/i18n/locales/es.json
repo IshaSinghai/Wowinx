@@ -94,80 +94,60 @@
         "longDescription": "Es la empresa full-stack de wowinX y la capa técnica que sustenta al resto del grupo. Construye y mantiene la infraestructura transversal que permite a cada empresa centrarse en su producto, respaldada por una base robusta, interoperable y escalable. Su trabajo abarca sistemas de respaldo, integraciones, puentes entre arquitecturas y coherencia técnica en diferentes entornos. Trivium convierte un ecosistema de empresas en una arquitectura tecnológica sólida y conectada."
       },
       "BeFootBall": {
-        "description": "La capa inmersiva del deporte más universal: conectando fans, clubes, ligas y federaciones en VR.",
+        "description": "La capa inmersiva del fútbol global.",
         "longDescription": "Construye, a través de VR, la capa inmersiva del deporte más universal del mundo: un ecosistema donde fans, clubes, ligas, federaciones y marcas convierten el fútbol en participación, movimiento, comunidad y negocio. Su fortaleza proviene de la intersección entre las grandes empresas tecnológicas, la demanda global del fútbol y las nuevas generaciones que ya consumen, socializan y compiten en entornos interactivos. BeFootball aporta contenido oficial, legitimidad deportiva y activación real."
       },
       "VirtualSports": {
-        "description": "Una nueva categoría deportiva en realidad virtual con movimiento físico real y competición estructurada.",
+        "description": "Una nueva categoría deportiva a través de la VR.",
         "longDescription": "Crea una nueva categoría deportiva en realidad virtual, con sus propias reglas, movimiento físico real y competición estructurada. Convierte la experiencia digital en presencia física, esfuerzo y juego compartido. Su escala va desde el hogar hasta arenas físicas, abriendo un nuevo espacio para ligas, eventos y campeonatos para una generación moldeada por entornos interactivos."
       },
       "BeSportsAcademy": {
-        "description": "Entrenamiento deportivo de élite a través de realidad virtual, accesible desde cualquier lugar.",
+        "description": "La academia inmersiva de deporte que lleva el conocimiento de la élite a cualquier jugador del mundo.",
         "longDescription": "Lleva el conocimiento de élite a cualquier jugador a través de la realidad virtual. Convierte el entrenamiento deportivo en una experiencia inmersiva, guiada, repetible y medible, accesible desde cualquier lugar. Su enfoque se centra en desarrollar la inteligencia deportiva: toma de decisiones bajo presión, anticipación, lectura táctica, orientación corporal y percepción espacial. BeSports Academy transforma un visor de realidad virtual en la puerta de acceso a un nuevo nivel de entrenamiento."
       },
-      "AldolsX": {
-        "description": "Convierte la distancia entre un ídolo y su audiencia en un producto a través de gemelos digitales oficiales.",
-        "longDescription": "Convierte una de las mayores limitaciones del entretenimiento en un producto: la distancia entre un ídolo y su audiencia. Construye gemelos digitales oficiales, entrenados con la voz, sensibilidad, imagen y universo narrativo del ídolo. De esta manera, la identidad del ídolo se convierte en una presencia conversacional, inmersiva y generadora de valor capaz de generar negocio recurrente y preservar su legado cultural a largo plazo."
-      },
-      "Stratos": {
-        "description": "Red de cómputo distribuido de baja latencia orientada a cargas de trabajo de IA en el edge.",
-        "longDescription": "Stratos opera una red de nodos de cómputo distribuidos para llevar la inferencia de IA al borde de la red."
-      },
       "IMM3RSIVE": {
-        "description": "El proyecto XR de wowinX y la infraestructura que necesita la nueva industria inmersiva.",
+        "description": "La unidad de medida económica del mercado XR.",
         "longDescription": "IMM3RSIVE es el proyecto XR de wowinX y la infraestructura que la nueva industria inmersiva necesita para operar. Construye IMM Units — la unidad estándar de consumo inmersivo para medir, presupuestar y liquidar experiencias XR a escala. Su token $IMM opera como el riel invisible que impulsa esa economía, mientras wowinX valida el estándar a través de demanda real de BeFootball y VirtualSports antes de abrirlo a la industria."
       },
       "WX180Productions": {
-        "description": "Estudio inmersivo boutique para sectores de alto valor: instituciones, deporte, lujo y hostelería.",
+        "description": "Productora video 180",
         "longDescription": "Produce experiencias inmersivas para sectores y clientes de alto valor: instituciones, deporte, lujo y hostelería. Opera como un estudio boutique — pocos proyectos al año, máxima calidad. Convierte la comunicación en experiencia a través de una idea simple: la presencia convierte el interés en decisión."
       },
       "True'sMusic": {
         "description": "El oráculo neutro del streaming musical, convirtiendo cada reproducción en prueba verificable de valor.",
         "longDescription": "Es el oráculo neutro del streaming musical: una capa de certificación que convierte cada reproducción en prueba verificable, trazable y auditable de valor. Esos datos certificados aportan mayor confianza a la economía del streaming actual y crean la base necesaria para llevar la música a Web3, desde la tokenización de catálogos hasta las regalías blockchain y la financiación de artistas a través de activos digitales."
       },
-      "GROWFY": {
-        "description": "Plataforma para crear, escalar y monetizar comunidades digitales en torno a educación y conocimiento.",
-        "longDescription": "Es una plataforma diseñada para crear, escalar y monetizar comunidades digitales en torno a la educación, el conocimiento y los productos digitales. Integra cursos, membresías, comunidad, eventos y herramientas de participación en un único entorno, convirtiendo el aprendizaje en una experiencia continua. Su valor radica en transformar contenidos y programas en ecosistemas vivos, aumentando la retención, el engagement repetido y la solidez de la relación entre creadores y usuarios."
+      "3B3": {
+        "description": "La plataforma que devuelve a las IPs el control total de su comunidad y sus datos.",
+        "longDescription": "3B3 devuelve a las IPs el control de su comunidad. Lo hace desde una identidad digital descentralizada, donde cada usuario tiene un perfil único, portátil y bajo su control total. Cuando la identidad pertenece al usuario, el dato pertenece al usuario; y cuando el dato pertenece al usuario, la comunidad puede pertenecer a la IP. Sobre esa base, 3B3 construye una super app modular para deporte, música y entretenimiento."
       },
       "KeyQuest": {
         "description": "Plataforma unificada de analítica e inteligencia para el mercado de aplicaciones VR/AR.",
         "longDescription": "Resuelve la falta de datos consolidados en el mercado de aplicaciones VR/AR. Unifica analítica, seguimiento de palabras clave y competidores, estimación de ingresos, tendencias de categoría e informes generados por IA en un único dashboard diseñado para el ecosistema inmersivo. Su posición dentro de wowinX le permite nutrirse de datos reales de aplicaciones en vivo y llegar al mercado justo cuando VR/AR empieza a necesitar inteligencia más precisa para crecer."
       },
-      "Ownia": {
-        "description": "Plataforma de IA privada para empresas que convierte el conocimiento corporativo en conversación.",
-        "longDescription": "Es una plataforma de inteligencia artificial privada para empresas que convierte el conocimiento corporativo en una conversación. Accede a la documentación interna de cada división, responde con fuentes citadas y recuerda el contexto de cada usuario entre sesiones. Redacta informes, resume documentos, compara textos, genera archivos, transcribe audio y se conecta a repositorios de código a través de una interfaz conversacional. Su modelo SaaS multi-instancia permite a cada organización operar en un entorno aislado, con su propio conocimiento, marca y control."
-      },
       "Seetrex": {
-        "description": "Sistema de IA determinista para entornos regulados donde cada decisión debe ser explicable y auditable.",
+        "description": "IA determinista y auditable para procesos regulados en banca, salud y derecho.",
         "longDescription": "Es un sistema de IA determinista diseñado para entornos regulados, donde cada decisión debe ser explicable, reproducible y auditable. Produce el mismo resultado para la misma entrada, con trazabilidad completa y verificación de terceros. Esa capacidad lo convierte en el puente entre la inteligencia artificial moderna y los sistemas heredados en banca, finanzas y procesos regulatorios — y la capa que valida cada decisión crítica dentro de la arquitectura de wowinX."
       },
       "Bullfy": {
-        "description": "Firma de trading propietaria impulsada por comunidades que da a traders talentosos acceso a capital real.",
+        "description": "Trading especializado en comunidades.",
         "longDescription": "Es una firma de trading propietaria impulsada por comunidades, que da a traders talentosos acceso a capital real a través de una experiencia simple, rápida y transparente. Quienes superan su evaluación operan con cuentas financiadas, reglas transparentes, pagos en minutos y escalado progresivo. Bullfy combina la agilidad de una fintech con una función bancaria central: poner capital detrás del criterio."
       },
       "EasyFi": {
-        "description": "Plataforma descentralizada de provisión de liquidez para AMMs, de forma automática y sin conocimientos técnicos.",
+        "description": "Acceso simple y transparente a la provisión de liquidez descentralizada.",
         "longDescription": "Es una plataforma descentralizada de provisión de liquidez que permite a los usuarios depositar activos en pools optimizados en AMMs como Uniswap V3, de forma automática y sin conocimientos técnicos previos. Los usuarios mantienen el control total de sus fondos en todo momento, mientras el rendimiento proviene exclusivamente de la actividad real del mercado. Su arquitectura sirve tanto a usuarios individuales como a instituciones o socios que necesitan desplegar soluciones de liquidez bajo su propia marca."
       },
       "Esignus": {
-        "description": "Plataforma B2B de Hardware Wallet as a Service para bancos, fintechs e exchanges.",
+        "description": "Hardware Wallet as a Service white label para instituciones financieras, con certificación EAL6+.",
         "longDescription": "Es una plataforma B2B de Hardware Wallet as a Service que permite a bancos, fintechs e exchanges lanzar su propia solución de autocustodia con marca propia. Su infraestructura integra un chip certificado EAL6+, una app white-label, un sistema de recuperación descentralizado y gestión de herencia digital. Su posición competitiva está respaldada por certificaciones de seguridad bancaria, premios nacionales de ciberseguridad y una base de clientes institucionales ya activa."
       },
       "Hashwallet": {
-        "description": "Cartera fría en formato tarjeta que resuelve la contradicción entre seguridad y simplicidad en autocustodia.",
+        "description": "Cold wallet en formato tarjeta para autocustodia de criptoactivos con recuperación descentralizada.",
         "longDescription": "Resuelve la contradicción entre seguridad y simplicidad en la autocustodia de criptoactivos. Es una cartera fría en formato tarjeta con chip EAL6+, firma sin contacto, soporte para más de 11.000 criptomonedas y un sistema de recuperación descentralizado que permite a los usuarios recuperar sus activos sin exponer sus claves privadas. Su firmware es inmutable y su diseño permite gestionar múltiples seeds, programar herencia digital y conectarse a dApps mediante WalletConnect."
       },
       "ROV": {
-        "description": "La comunidad líder de realidad virtual y aumentada en el mundo hispanohablante.",
+        "description": "La comunidad de referencia en realidad virtual y aumentada para el mercado hispanohablante, desde 2013.",
         "longDescription": "ROV es la comunidad líder de realidad virtual y aumentada en el mundo hispanohablante. Fundada en 2013, reúne noticias, análisis, foro, podcasts y una base de datos para una audiencia que adoptó XR mucho antes de la adopción masiva. Dentro de wowinX, aporta la comunidad nativa del espacio XR donde opera el grupo. Ahora evoluciona hacia un proyecto internacional, manteniendo su profundidad editorial, sus estándares y su compromiso con XR."
-      },
-      "TierraDeCreadores": {
-        "description": "Ecosistema latinoamericano para creadores digitales con formación, comunidad y oportunidades de negocio.",
-        "longDescription": "Es un evento experiencial global diseñado para creadores. Su modelo combina contenido, networking y desarrollo de negocio en un formato físico replicable en diferentes territorios. Puede desplegarse en distintos mercados como plataforma estratégica para conectar creadores, socios y oportunidades dentro de la economía creadora."
-      },
-      "TheArchivesOfSilence": {
-        "description": "Una propiedad intelectual proyectada hacia formatos inmersivos, audiovisuales y transmedia.",
-        "longDescription": "Es una propiedad intelectual nacida de una obra existente y proyectada por wowinX hacia nuevas capas de valor. Su desarrollo abarca formatos inmersivos, audiovisuales y transmedia, con el objetivo de convertir un universo narrativo en una plataforma global de contenido, experiencia y desarrollo comercial."
       }
     }
   },

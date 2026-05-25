@@ -105,14 +105,6 @@
         "description": "Elite sports training through virtual reality, accessible from anywhere.",
         "longDescription": "It brings elite knowledge to any player through virtual reality. It turns sports training into an immersive, guided, repeatable, and measurable experience, accessible from anywhere. Its focus is on developing sports intelligence: decision-making under pressure, anticipation, tactical reading, body orientation, and spatial perception. BeSports Academy transforms a virtual reality headset into the gateway to a new scale of training."
       },
-      "AldolsX": {
-        "description": "Turns the distance between an idol and their audience into a product through official digital twins.",
-        "longDescription": "It turns one of entertainment's greatest limitations into a product: the distance between an idol and their audience. It builds official digital twins, trained on the idol's voice, sensibility, image, and narrative universe. In this way, the idol's identity becomes a conversational, immersive, and value-generating presence capable of generating recurring business and preserving their cultural legacy over the long term."
-      },
-      "Stratos": {
-        "description": "Low-latency distributed computing network for AI inference at the edge.",
-        "longDescription": "Stratos operates a distributed computing node network to bring AI inference to the network edge."
-      },
       "IMM3RSIVE": {
         "description": "wowinX's XR infrastructure layer powering the new immersive industry.",
         "longDescription": "IMM3RSIVE is wowinX's XR project and the infrastructure the new immersive industry needs to operate. It builds IMM Units — the standard unit of immersive consumption for measuring, budgeting, and settling XR experiences at scale. Its $IMM token operates as the invisible rail powering that economy, while wowinX validates the standard through real demand from BeFootball and VirtualSports before opening it to the industry."
@@ -125,17 +117,13 @@
         "description": "The neutral oracle of music streaming, turning every stream into verifiable proof of value.",
         "longDescription": "It is the neutral oracle of music streaming: a certification layer that turns every stream into verifiable, traceable, and auditable proof of value. That certified data brings greater confidence to today's streaming economy and creates the foundation needed to bring music into Web3, from catalog tokenization to blockchain royalties and artist financing through digital assets."
       },
-      "GROWFY": {
-        "description": "Platform to create, scale and monetize digital communities around education and knowledge.",
-        "longDescription": "It is a platform designed to create, scale, and monetize digital communities around education, knowledge, and digital products. It brings courses, memberships, community, events, and participation tools into a single environment, turning learning into a continuous experience. Its value lies in transforming content and programs into living ecosystems, increasing retention, repeat engagement, and the strength of the relationship between creators and users."
+      "3B3": {
+        "description": "The platform that gives back IP owners full control over their community and data.",
+        "longDescription": "It gives IP owners back control of their communities. It does so through decentralized digital identity, where each user has a unique, portable profile fully under their own control. When identity belongs to the user, data belongs to the user; and when data belongs to the user, the IP owner can rebuild a direct relationship with its community. On that foundation, 3B3 builds a modular super app for sport, music, and entertainment."
       },
       "KeyQuest": {
         "description": "Unified analytics and intelligence platform for the VR/AR application market.",
         "longDescription": "It solves the lack of consolidated data in the VR/AR application market. It unifies analytics, keyword and competitor tracking, revenue estimation, category trends, and AI-generated reports in a single dashboard designed for the immersive ecosystem. Its position within wowinX allows it to draw on real data from live applications and reach the market just as VR/AR starts needing sharper intelligence to grow."
-      },
-      "Ownia": {
-        "description": "Private AI platform that turns corporate knowledge into a conversation.",
-        "longDescription": "It is a private artificial intelligence platform for companies that turns corporate knowledge into a conversation. It accesses each division's internal documentation, answers with cited sources, and remembers each user's context across sessions. It writes reports, summarizes documents, compares texts, generates files, transcribes audio, and connects to code repositories through a conversational interface. Its multi-instance SaaS model allows each organization to operate in an isolated environment, with its own knowledge, branding, and control."
       },
       "Seetrex": {
         "description": "Deterministic AI system for regulated environments where every decision must be explainable and auditable.",
@@ -160,14 +148,6 @@
       "ROV": {
         "description": "The leading virtual and augmented reality community in the Spanish-speaking world.",
         "longDescription": "ROV is the leading virtual and augmented reality community in the Spanish-speaking world. Founded in 2013, it brings together news, analysis, a forum, podcasts, and a database for an audience that embraced XR long before mass adoption. Within wowinX, it brings the native community of the XR space where the group operates. It is now evolving into an international project, while maintaining its editorial depth, standards, and commitment to XR."
-      },
-      "TierraDeCreadores": {
-        "description": "Global experiential event for creators combining content, networking and business development.",
-        "longDescription": "It is a global experiential event designed for creators. Its model combines content, networking, and business development in a physical format that can be replicated across different territories. It can be deployed in different markets as a strategic platform to connect creators, partners, and opportunities within the creator economy."
-      },
-      "TheArchivesOfSilence": {
-        "description": "An intellectual property projected into immersive, audiovisual and transmedia formats.",
-        "longDescription": "It is an intellectual property born from an existing work and projected by wowinX into new layers of value. Its development spans immersive, audiovisual, and transmedia formats, with the goal of turning a narrative universe into a global platform for content, experience, and commercial development."
       }
     }
   },

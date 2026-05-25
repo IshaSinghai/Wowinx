@@ -5,12 +5,14 @@ import MarqueeSection from './MarqueeSection';
 import Footer from './Footer';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-const VENTURES = Array.from({ length: 20 }, (_, i) => ({
+const VENTURES = Array.from({ length: 28 }, (_, i) => ({
   id: i,
+  imageSrc: `/images/ventures/venture${i + 1}.png`,
+  imageAlt: `venture ${i + 1} logo`,
 }));
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
-function VentureCard({ isSelected, onClick }) {
+function VentureCard({ isSelected, onClick, imageSrc, imageAlt }) {
   return (
     <div
       onClick={onClick}
@@ -42,19 +44,13 @@ function VentureCard({ isSelected, onClick }) {
           transition: 'all 0.25s ease',
           boxSizing: 'border-box',
           overflow: 'hidden',
-          padding: '48px 40px',
         }}
+        className="px-4 py-2"
       >
         <img
-          src="/images/venture1.png"
-          alt="venture logo"
-          style={{
-            width: '100%',
-            maxWidth: 159.38,
-            height: 27.15,
-            objectFit: 'contain',
-            display: 'block',
-          }}
+          src={imageSrc}
+          alt={imageAlt}
+          className="object-cover w-full h-full"
         />
       </div>
     </div>
@@ -123,6 +119,8 @@ export default function VentureScreen({
               >
                 <VentureCard
                   isSelected={selectedId === v.id}
+                  imageSrc={v.imageSrc}
+                  imageAlt={v.imageAlt}
                   onClick={() =>
                     setSelectedId((prev) =>
                       prev === v.id ? null : v.id
